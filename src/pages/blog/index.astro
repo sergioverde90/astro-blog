@@ -5,69 +5,97 @@ import Footer from '../../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 ---
 
-<!doctype html>
 <html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<style>
-			.title {
-				margin: 0;
-				color: var(--main-color);
-				line-height: 1;
-			}
-			.date {
-				margin: 0;
-				color: rgb(var(--gray));
-			}
-			.row {
-				display: grid;
-				grid-template-columns: 40% 50%;
-				align-items: center; 
-			}
-			.column-1,
-			.column-2 {
-				padding: 0.6rem;
-				align-items: center;
-			}
-			.column-1 img {
-				border-radius: 12px;
-				box-shadow: var(--box-shadow);
-			}
-			.column-2 {
-				margin-left: 2em;
-			}
-
-		</style>
-	</head>
-	<body>
-		<Header />
-		<main>
-			<section>
-					{
-						posts.map((post) => (
-							<a href={`/blog/${post.id}/`}>
-								<div class="row">
-									<div class="column-1">
-										<img transition:name={post.id} src={post.data.heroImage} alt="" />
-									</div>
-									<div class="column-2">
-										<h4 class="title">{post.data.title}</h4>
-										<p class="date">
-											<FormattedDate date={post.data.pubDate} />
-										</p>
-									</div>
-								</div>
-							</a>
-						))
-					}
-			</section>
-		</main>
-		<Footer />
-	</body>
+<BaseHead title={`${SITE_TITLE} | Blog`} description={SITE_DESCRIPTION} />
+<body>
+	<Header />
+    <main>
+        <div class="blog-posts">
+            {posts.map(post => (
+				<a href={`/blog/${post.id}/`}>
+					<article class="blog-post">
+						<div class="image-column">
+							<img transition:name={post.id} src={post.data.heroImage} alt="" />
+						</div>
+						<div class="content-column">
+							<h3>{post.data.title}</h3>
+							<p class="pub-date"><FormattedDate date={post.data.pubDate} /></p>
+						</div>
+					</article>
+				</a>
+            ))}
+        </div>
+    </main>
+	<Footer />
+</body>
 </html>
+
+<style>
+    /* Blog post styles */
+    .blog-posts {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .blog-post {
+        display: flex;
+        background-color: rgb(248, 248, 248);
+        border-radius: 8px;
+        overflow: hidden;
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+    }
+
+	.blog-post:hover {
+        transform: scale(101%);
+        box-shadow: 0 6px 12px rgba(132, 132, 132, 0.412);
+    }
+
+    .image-column {
+        flex: 1;
+        min-width: 200px;
+    }
+
+    .image-column img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .content-column {
+        flex: 2;
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .content-column h2 {
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+    }
+
+    .pub-date {
+        font-size: 0.9rem;
+        color: #666;
+        margin-bottom: 1rem;
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+        .blog-post {
+            flex-direction: column;
+        }
+
+        .image-column {
+            min-height: 200px;
+        }
+    }
+</style>

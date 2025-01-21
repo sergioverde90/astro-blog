@@ -1,6 +1,8 @@
 ---
 import HeaderLink from './HeaderLink.astro';
 import { SITE_TITLE } from '../consts';
+import Hr from './Hr.astro';
+import Breadcrumbs from './Breadcrumbs.astro';
 ---
 
 <header>
@@ -41,11 +43,14 @@ import { SITE_TITLE } from '../consts';
 		</div>
 	</nav>
 </header>
+<Hr />
+<Breadcrumbs />
 <style>
 	header {
 		margin: 0;
 		padding: 0 1em;
-		background: rgb(237, 237, 237);
+		/*background: rgb(237, 237, 237);*/
+		background-image: linear-gradient(white, var(--background-color));
 		/*box-shadow: 0 2px 8px rgba(var(--black), 5%);*/
 	}
 	h2 {
@@ -71,7 +76,7 @@ import { SITE_TITLE } from '../consts';
 	nav a.active {
 		text-decoration-line: underline;
   		text-decoration-style: wavy;
-  		text-decoration-color: var(--main-color);
+  		text-decoration-color: rgb(223, 51, 51);
 		text-underline-offset: 0.4em;
 		text-decoration-thickness: 0.09em;
 	}
