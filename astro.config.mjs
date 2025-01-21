@@ -18,7 +18,7 @@ export default defineConfig({
 		rehypePlugins: [rehypeKatex],
 		shikiConfig: {
 		  // For more themes, visit https://shiki.style/themes
-		  themes: { light: "catppuccin-latte", dark: "night-owl" },
+		  themes: { light: "material-theme", dark: "night-owl" },
 		  wrap: true,
 		},
 	  },
