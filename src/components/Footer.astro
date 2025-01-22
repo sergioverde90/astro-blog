@@ -1,9 +1,11 @@
 ---
+import { SITE_TITLE } from '../consts';
+
 const today = new Date();
 ---
 
 <footer>
-	&copy; {today.getFullYear()} Your name here. All rights reserved.
+	&copy; {today.getFullYear()} {SITE_TITLE}. All rights reserved.
 	<div class="social-links">
 		<a href="https://m.webtoo.ls/@astro" target="_blank">
 			<span class="sr-only">Follow Astro on Mastodon</span>
@@ -42,7 +44,7 @@ const today = new Date();
 <style>
 	footer {
 		padding: 2em 1em 6em 1em;
-		background: rgb(229, 230, 224);
+		background: transparent;
 		color: rgb(var(--gray));
 		text-align: center;
 	}
@@ -56,8 +58,9 @@ const today = new Date();
 	.social-links a {
 		text-decoration: none;
 		color: rgb(var(--gray));
+		transition: all 0.2s ease;
 	}
 	.social-links a:hover {
-		color: var(--main-color);
+		transform: rotate(12deg);
 	}
 </style>

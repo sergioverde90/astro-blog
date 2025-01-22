@@ -11,7 +11,7 @@
 	--gray: 96, 115, 159;
 	--gray-light: 229, 233, 240;
 	--gray-dark: 40, 39, 40;
-	--background-color: rgb(247, 247, 247);
+	/*--background-color: rgb(247, 247, 247);*/
 	--box-shadow: 0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%),
 		0 16px 32px rgba(var(--gray), 33%);
 }
@@ -42,7 +42,39 @@ body {
 	color: rgb(var(--gray-dark));
 	font-size: 18px;
 	line-height: 1.7;
+	
+	/** fadding honeycomb background */
+	background: linear-gradient(to bottom right, #ffffff, #b2a98787);
+    position: relative;
 }
+
+body::before {
+	/* honeycomb background */
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: -1;
+
+	--s: 47px;
+	--c1: #f0f0ed7e; /* inner hexagon color */
+	--c2: #d1cbb5cc; /* border hexagon color #d1cbb5cc */
+	--c:#0000, var(--c1) .5deg 119.5deg, #0000 120deg;
+	--g1:conic-gradient(from  60deg at 56.25% calc(425%/6), var(--c));
+	--g2:conic-gradient(from 180deg at 43.75% calc(425%/6),var(--c));
+	--g3:conic-gradient(from -60deg at 50%   calc(175%/12),var(--c));
+
+	background:
+	  var(--g1), var(--g1) var(--s) calc(1.73*var(--s)),
+	  var(--g2), var(--g2) var(--s) calc(1.73*var(--s)),
+	  var(--g3) var(--s) 0,var(--g3) 0 calc(1.73*var(--s)) 
+	  var(--c2);
+	background-size: calc(2*var(--s)) calc(3.46*var(--s));
+	opacity: 0.2;
+}
+
 main {
 	max-width: 54em;
 	margin: auto;
