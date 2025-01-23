@@ -3,6 +3,7 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { Code } from 'astro/components';
 ---
 
 <!doctype html>
@@ -44,6 +45,28 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 					>astro-blog-template
 				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
 			</p>
+
+			<h4 style="color: green">// TODO: list of features to implement</h4>
+			<ul>
+				<li>Include Fuse.js for searching (
+					<a href="https://alejandrocelaya.blog/2023/11/05/build-a-search-page-for-your-astro-static-blog-with-fuse-js/"
+					target="_blank" rel="noopener noreferrer"
+					https://alejandrocelaya.blog/2023/11/05/build-a-search-page-for-your-astro-static-blog-with-fuse-js/)>fuse doc</a>)
+				</li>
+				<li>
+					Include OpenGraph for social media sharing.
+				</li>
+				<li>
+					Image and icon optimization.
+				</li>
+				<li>
+					Add remark-toc for table of contents. (https://github.com/remarkjs/remark-toc)
+				</li>
+			</ul>
+			<Code code={` 
+			// Javascript code with syntax highlighting.
+			var fun = function lang(l) {`
+			} lang="js" wrap/>
 		</main>
 		<Footer />
 	</body>
