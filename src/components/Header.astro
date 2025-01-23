@@ -1,18 +1,18 @@
 ---
 import HeaderLink from './HeaderLink.astro';
-import { SITE_TITLE } from '../consts';
-import Hr from './Hr.astro';
 import Breadcrumbs from './Breadcrumbs.astro';
 ---
 
 <header>
 	<nav>
-		<h2><a href="/">{SITE_TITLE}</a></h2>
-		<div class="internal-links">
-			<HeaderLink href="/">Home</HeaderLink>
-			<HeaderLink href="/blog/">Blog</HeaderLink>
-			<HeaderLink href="/about/">About</HeaderLink>
-		</div>
+		<section>
+			<div>
+				<HeaderLink href="/">Home</HeaderLink>
+				<HeaderLink href="/blog/">Blog</HeaderLink>
+				<HeaderLink href="/about/">About</HeaderLink>
+			</div>
+		</section>
+
 		<div class="social-links">
 			<a href="https://m.webtoo.ls/@astro" target="_blank">
 				<span class="sr-only">Follow Astro on Mastodon</span>
@@ -42,16 +42,12 @@ import Breadcrumbs from './Breadcrumbs.astro';
 			</a>
 		</div>
 	</nav>
-	<Hr />
 </header>
 <Breadcrumbs />
 <style>
 	header {
 		margin: 0;
 		padding: 0 1em;
-		/*background: rgb(237, 237, 237);*/
-		background-image: linear-gradient(white, var(--background-color));
-		/*box-shadow: 0 2px 8px rgba(var(--black), 5%);*/
 	}
 	h2 {
 		margin: 0;

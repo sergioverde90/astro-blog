@@ -30,6 +30,10 @@
 	font-style: normal;
 	font-display: swap;
 }
+
+html {
+	scroll-behavior: smooth;
+}
 body {
 	font-family: 'Raleway', 'Comic Sans MS';
 	margin: 0;
@@ -42,15 +46,12 @@ body {
 	color: rgb(var(--gray-dark));
 	font-size: 18px;
 	line-height: 1.7;
-	
-	/** fadding honeycomb background */
-	background: linear-gradient(to bottom right, #ffffff, #b2a98787);
-    position: relative;
+	background: linear-gradient(to bottom right, #ffffff, #edeadfbe);
 }
 
-body::before {
+/* body::before { */
 	/* honeycomb background */
-	content: '';
+	/* content: '';
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -58,9 +59,11 @@ body::before {
 	bottom: 0;
 	z-index: -1;
 
-	--s: 47px;
-	--c1: #f0f0ed7e; /* inner hexagon color */
-	--c2: #d1cbb5cc; /* border hexagon color #d1cbb5cc */
+	--s: 47px; */
+	/* inner hexagon color */
+	/* --c1: #f0f0ed7e;  */
+	/* border hexagon color #d1cbb5cc */
+	/* --c2: #d1cbb5cc; 
 	--c:#0000, var(--c1) .5deg 119.5deg, #0000 120deg;
 	--g1:conic-gradient(from  60deg at 56.25% calc(425%/6), var(--c));
 	--g2:conic-gradient(from 180deg at 43.75% calc(425%/6),var(--c));
@@ -73,7 +76,7 @@ body::before {
 	  var(--c2);
 	background-size: calc(2*var(--s)) calc(3.46*var(--s));
 	opacity: 0.2;
-}
+} */
 
 main {
 	max-width: 54em;
