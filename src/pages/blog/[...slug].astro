@@ -1,7 +1,9 @@
 ---
 import { type CollectionEntry, getCollection } from 'astro:content';
-import BlogPost from '../../layouts/BlogPost.astro';
 import { render } from 'astro:content';
+
+import BlogPost from '../../layouts/BlogPost.astro';
+import BackToTop from '../../components/BackToTop.astro';
 
 export async function getStaticPaths() {
 	const posts = await getCollection('blog');
@@ -21,59 +23,4 @@ const { Content } = await render(post);
 	<Content />
 </BlogPost>
 
-<div id="back-to-top">
-	<span>⬆</span>
-</div>
-
-<style>
-	#back-to-top {
-		position: fixed;
-		visibility: hidden;
-		bottom: 20px;
-		right: 20px;
-		width: 50px;
-		height: 50px;
-		border-radius: 50%;
-		background-color: var(--main-color);
-		color: white;
-		text-align: center;
-		line-height: 50px;
-		cursor: pointer;
-		transition: background-color 0.3s, transform 0.3s;
-		box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-	}
-
-	#back-to-top:hover {
-		transform: translateY(-3px);
-	}
-
-	#back-to-top::before {
-		content: "";
-		position: absolute;
-		top: 50%;
-		left: 50%;
-	}
-
-	#back-to-top svg {
-		width: 1.5rem;
-		height: 1.5rem;
-	}
-	.rotate-90 {
-		transform: rotate(90deg);
-	}
-</style>	  
-
-<script is:inline>
-	document.querySelector("#back-to-top")?.addEventListener("click", () => {
-		document.body.scrollTop = 0;
-		document.documentElement.scrollTop = 0;
-	});
-
-	document.addEventListener('scroll', (e) => {
-		if (window.scrollY > 100) {
-			document.querySelector("#back-to-top").style.visibility = "visible";
-		} else {
-			document.querySelector("#back-to-top").style.visibility = "hidden";
-		}
-	});
-</script>
+<BackToTop />
