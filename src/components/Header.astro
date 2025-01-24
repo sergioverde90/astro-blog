@@ -71,10 +71,17 @@ import Breadcrumbs from './Breadcrumbs.astro';
 	}
 	nav a.active {
 		text-decoration-line: underline;
-  		text-decoration-style: wavy;
-  		text-decoration-color: rgb(208, 44, 44);
-		text-underline-offset: 0.4em;
-		text-decoration-thickness: 0.09em;
+  		text-decoration-style: solid;
+  		text-decoration-color: var(--main-color);
+		text-underline-offset: 0.6em;
+		text-decoration-thickness: 0.2em;
+	}
+	nav a:not(.active):hover {
+		text-decoration-line: underline;
+  		text-decoration-style: solid;
+  		text-decoration-color: rgb(var(--gray-light));
+		text-underline-offset: 0.6em;
+		text-decoration-thickness: 0.2em;
 	}
 	.social-links,
 	.social-links a {
