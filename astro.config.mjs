@@ -5,19 +5,20 @@ import sitemap from '@astrojs/sitemap';
 import remarkToc from "remark-toc";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
+import { rehypeHeadingIds } from '@astrojs/markdown-remark';
+import remarkCollapse from "remark-collapse";
 
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://example.com',
 	integrations: [mdx(), sitemap()],
 	markdown: {
-		remarkPlugins: [
-		  remarkMath,
-		  remarkToc
-		],
-		rehypePlugins: [rehypeKatex],
+		remarkPlugins: [ remarkMath, remarkToc, [remarkCollapse,
+			{
+			  test: "Table of Contents",
+			}]],
+		rehypePlugins: [ rehypeKatex, rehypeHeadingIds],
 		shikiConfig: {
-		  // For more themes, visit https://shiki.style/themes
 		  themes: { light: "material-theme", dark: "night-owl" },
 		  wrap: true,
 		},

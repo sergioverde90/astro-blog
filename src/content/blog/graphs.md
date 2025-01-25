@@ -9,7 +9,7 @@ heroImage: '/blog-placeholder-1.jpg'
 
 https://youtube.com/playlist?list=PLQfaHkBRINsyhWCYlh9j5uf687UEMZPTD&si=MzVrr6LvOjLEIeLO
 
-**TABLE OF CONTENT**
+## Table of Contents
 
 # Undirected Graphs (U.G)
 
@@ -17,12 +17,8 @@ https://youtube.com/playlist?list=PLQfaHkBRINsyhWCYlh9j5uf687UEMZPTD&si=MzVrr6Lv
 
 A **undirected** **graph $G = (V,E)$  consist of a finite nonempty set of vertices $V$ and a finite set $E$  of **unordered** **pairs** of distinct elements *connecting* those vertices. Each edge has one or two vertices associated with it called *endpoints*.
 
-<aside>
-💡
 
-**Undirected** means that there is no direction in the edges connecting vertices. On the opposit, there is another definition for those graphs that have directionality.
-
-</aside>
+> 💡 **Undirected** means that there is no direction in the edges connecting vertices. On the opposit, there is another definition for those graphs that have directionality.
 
 Example of an U.G.
 
@@ -72,20 +68,14 @@ This theorem shows that the sum of degrees of all vertices in an U.G is always e
 
 An U.G has an even number of vertices of odd degree.
 
-<aside>
-💡
-
-***Proof**: We can prove this theorem using theorem 1.* 
-
-*Let $V_1$ the set of all vertices in $G$ with even degree and $V_2$  the set of all vertices in $G$ with odd degree. Then:*
-
-$$
-2m = \sum\limits_{v\in V_1} deg(v) + \sum\limits_{v\in V_2} deg(v)
-$$
-
-*Because the right side of the equality is even, then the left side must also be even. Because the left hand of the equality is a sum and the first term of the sum is even, to satisfy the equality the second term must be also even, and because all the terms in the sequence of the second sum are odd, then must be an even number of such terms. **Thus, there are an even number of vertices of odd degree**.*  
-
-</aside>
+> 💡**Proof**: We can prove this theorem using theorem 1.
+> Let $V_1$ the set of all vertices in $G$ with even degree and $V_2$  the set of all vertices in $G$ with odd degree. Then:
+> 
+> $$
+> 2m = \sum\limits_{v\in V_1} deg(v) + \sum\limits_{v\in V_2} deg(v)
+> $$
+> 
+> Because the right side of the equality is even, then the left side must also be even. Because the left hand of the equality is a sum and the first term of the sum is even, to satisfy the equality the second term must be also even, and because all the terms in the sequence of the second sum are odd, then must be an even number of such terms. **Thus, there are an even number of vertices of odd degree**.
 
 # Directed Graphs (D.G)
 
