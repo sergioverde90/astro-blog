@@ -31,7 +31,7 @@ body {
 }
 
 main {
-	max-width: 56rem;
+	max-width: 800px;
 	margin: auto;
 	padding: 1em 1em 2em 1em;
 	height: 100%;

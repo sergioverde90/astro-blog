@@ -5,7 +5,6 @@ import Footer from '../../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
-import Breadcrumbs from '../../components/Breadcrumbs.astro';
 
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
@@ -25,8 +24,9 @@ const posts = (await getCollection('blog')).sort(
 							<img transition:name={post.id} src={post.data.heroImage} alt="" />
 						</div>
 						<div class="content-column">
-							<h3>{post.data.title}</h3>
-							<p class="pub-date"><FormattedDate date={post.data.pubDate} /></p>
+							<h2>{post.data.title}</h2>
+                            <p class="post-description">{post.data.description}</p>
+							<span class="pub-date"><FormattedDate date={post.data.pubDate} /></span>
 						</div>
 					</article>
 				</a>
@@ -40,17 +40,27 @@ const posts = (await getCollection('blog')).sort(
 <style>
     /* Blog post styles */
     .blog-posts {
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
+        /* enable grid */
+        display: grid;
+        /* indicate the number of columns:
+            - auto-fill: fill the container with as many columns as possible
+            - minmax: set the minimum and maximum width of each column
+           If there is enough space, the columns will be 275px wide. 
+           If there is not enough space, the columns will shrink to fit the container.
+        */
+        grid-template-columns: repeat(
+            auto-fill, 
+            minmax(220px, 1fr)
+        );
+        /* when rows are auto-generated, set the height of each row */
+        /* grid gap */
+        gap: 15px;
     }
 
     .blog-post {
-        display: flex;
         background-color: rgb(248, 248, 248);
         border-radius: 8px;
-        overflow: hidden;
-		box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.07);
+		box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.205);
         transition: all 0.3s ease;
     }
 
@@ -59,43 +69,43 @@ const posts = (await getCollection('blog')).sort(
         box-shadow: 0 6px 12px rgba(132, 132, 132, 0.412);
     }
 
-    .image-column {
-        flex: 1;
-        min-width: 200px;
-    }
-
     .image-column img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+        border-radius: 4px 4px 0px 0px;
     }
 
     .content-column {
-        flex: 2;
-        padding: 1.5rem;
-        display: flex;
-        flex-direction: column;
+        margin: 0;
+        padding: 0;
     }
 
     .content-column h2 {
-        margin-top: 0;
-        margin-bottom: 0.5rem;
+        font-size: 100%;
+        font-weight: bold;
+        padding-left: 15px;
+        padding-right: 15px;
+        max-height: 35px;
+        min-height: 35px;
+        color: var(--main-color);
+    }
+
+    .post-description {
+        font-size: 85%;
+        font-weight: 500;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 0px;
+        max-height: 100px;
+        min-height: 100px;
+        color: rgb(106, 118, 143);
     }
 
     .pub-date {
-        font-size: 0.9rem;
-        color: #666;
-        margin-bottom: 1rem;
-    }
-
-    /* Responsive design */
-    @media (max-width: 768px) {
-        .blog-post {
-            flex-direction: column;
-        }
-
-        .image-column {
-            min-height: 200px;
-        }
+        left: 0;
+        margin-inline-start: 0px;
+        color: #929191;
+        bottom: 15px;
+        padding-left: 15px;
+        padding-top: 15px;
+        font-size: small;
     }
 </style>
