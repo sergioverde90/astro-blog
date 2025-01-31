@@ -11,14 +11,15 @@ heroImage: '/blog-placeholder-3.jpg'
 * [Prompt Engineering for Developers](https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-developers/) 🟠
 * [Freecodecamp for Backend](https://www.freecodecamp.org/learn/back-end-development-and-apis/) 🟠
 * [Grokking the Coding Interview: Patterns for Coding Questions](https://www.designgurus.io/course-play/grokking-the-coding-interview/doc/who-should-take-this-course) 🟠
+* [neetcode roadmap](https://neetcode.io/roadmap)
 
 # Development
 * [Maven Spotless plugin](https://www.baeldung.com/java-maven-spotless-plugin)
 
 # Coding
 ## leetcode 
+* ⭐️ https://neetcode.io/
 * https://leetcode.com/studyplan/leetcode-75/
-* https://neetcode.io/
 * [leetcode patterns](https://www.youtube.com/watch?v=PVjKqhi4qpw=)
 
 # DSA

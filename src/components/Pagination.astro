@@ -1,0 +1,30 @@
+---
+const {page} = Astro.props;
+---
+
+<nav class="pagination">
+    {
+        page.url.prev && (
+            <a href={page.url.prev} rel="prev">&lt;&lt; Previous</a>
+        )
+    }
+    {page.currentPage} / {page.lastPage}
+    
+    {
+        page.url.next && (
+            <a href={page.url.next} rel="next">Next &gt;&gt;</a>
+        )
+    }
+
+</nav>
+
+<style>
+.pagination{
+    padding-top: 15px;
+    text-align: center;
+}
+
+.pagination a {
+    text-decoration: none;
+}
+</style>

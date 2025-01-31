@@ -8,3 +8,4 @@ heroImage: '/blog-placeholder-1.jpg'
 * Talk about Spring Boot `@ConditionalOnXXXXX`
 * Design patterns
 * Java NIO
+* Astro pagination
