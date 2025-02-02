@@ -1,41 +1,107 @@
 ---
 
 ---
-
-<div class="cursor typewriter-animation">
-    <span><slot /></span>
+<div class="terminal" >
+  <div class="terminal-buttons">
+    <span class="terminal-button close">x</span>
+    <span class="terminal-button minimize">-</span>
+    <span class="terminal-button zoom">y</span>
+  </div>
+  <div class="terminal-prompt">
+    <div class="terminal-start-typing">
+      <span> &gt; </span>
+    </div> 
+    <div class="cursor typewriter-animation">
+        <span><slot /></span>
+    </div>
+  </div>
 </div>
 
 <style>
     /* Google Fonts */
 @import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
+.terminal {
+  height: 200px;
+  border-radius: 10px;
+  background-color: rgb(28, 28, 28);
+}
 
-/* Cursor */
-.cursor{
-    width: 100%;
-    border-right: 2px solid rgba(255,255,255,.75);
-    font-size: 30px;
-    text-align: center;
+.terminal-buttons {
+  background-color:  rgb(81, 81, 81);
+  height: 20px;
+  border-radius: 10px 10px 0px 0px;
+  display: flex;
+
+  gap: 7px;
+  padding-top: 5px;
+  padding-left: 8px;
+}
+
+.terminal-button {
+  border-radius: 100%;
+  text-align: center;
+  font-weight: 800;
+  width: 15px;
+  height: 15px;
+  font-size: 50%;
+}
+
+.terminal-buttons .close {
+  color: rgb(142, 9, 9);
+  background-color: red;
+}
+
+.terminal-buttons .minimize {
+  color: rgb(177, 139, 0);
+  background-color: rgb(255, 200, 0);
+}
+
+.terminal-buttons .zoom {
+  color: rgb(15, 110, 0);
+  background-color: rgb(10, 192, 4);
+}
+
+.terminal-prompt {
+  display: flex;
+  padding-top: 2%;
+  color: #1ab708; 
+  background-color: rgb(28, 28, 28);
+}
+
+.terminal-start-typing {
+  display: block;
+  width: 5%;
+  padding-left: 3%;
+}
+
+.cursor {
+    border-right: 2px solid #1ab708;
     white-space: nowrap;
     overflow: hidden;
-
-    color: #f1f1f1; 
     font-family: 'Anonymous Pro', monospace;
-    background-color: #673ab7;
+    background-color: rgb(28, 28, 28);
+    max-width: fit-content;
+}
+
+.cursor span {
+    padding-left: 3px;
 }
 
 /* Animation */
 .typewriter-animation {
   animation: 
-    typewriter 10s steps(60) 1s 1 normal both, 
-    blinkingCursor 700ms steps(60) infinite normal;
+    /* total duration | steps | initial-delay | iteration count |animation direction | */
+    typewriter 5s steps(40) 1s 1 alternate both, 
+    blinkingCursor 700ms steps(40) infinite normal;
 }
+
 @keyframes typewriter {
   from { width: 0; }
   to { width: 100%; }
 }
+
 @keyframes blinkingCursor{
-  from { border-right-color: rgba(255,255,255,.75); }
+  from { border-right-color: #1ab708; }
   to { border-right-color: transparent; }
 }
 
