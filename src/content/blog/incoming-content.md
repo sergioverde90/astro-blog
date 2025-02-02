@@ -9,3 +9,4 @@ heroImage: '/blog-placeholder-1.jpg'
 * Design patterns
 * Java NIO
 * Astro pagination
+* Minimal technologies for a Backend engineer.

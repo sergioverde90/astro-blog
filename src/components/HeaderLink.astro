@@ -6,8 +6,12 @@ type Props = HTMLAttributes<'a'>;
 const { href, class: className, ...props } = Astro.props;
 const pathname = Astro.url.pathname.replace(import.meta.env.BASE_URL, '');
 const subpath = pathname.match(/[^\/]+/g);
+
+const pathnameArr = pathname.split('/');
+const hrefArr = href?.toString().split('/');
+
 const isActive = (href === '/' && pathname === '') // is '/' the root path
-	|| href === pathname || href === '/' + (subpath?.[0] + '/');
+	|| pathnameArr[0] === hrefArr?.[1];
 ---
 
 <a href={href} class:list={[className, { active: isActive }]} {...props}>
