@@ -1,6 +1,5 @@
 # TODO LIST
 
-* Add 'draft' feature to frontmatter posts
 * Review the Home content
 * Remove the 'About' content replacing it with a 'Resources' section listing books, DSA, talks, etc.
 * Image and icon optimization.
