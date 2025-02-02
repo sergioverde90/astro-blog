@@ -1,13 +1,18 @@
 ---
 import Layout from '../layouts/BlogPost.astro';
+
+const post = {
+	data : {
+		title: "About Me",
+		description: "Lorem ipsum dolor sit amet",
+		pubDate: new Date('August 08 2021'),
+		heroImage: "/blog-placeholder-about.jpg"
+	},
+	id : "about-me"
+}
 ---
 
-<Layout
-	title="About Me"
-	description="Lorem ipsum dolor sit amet"
-	pubDate={new Date('August 08 2021')}
-	heroImage="/blog-placeholder-about.jpg"
->
+<Layout post={post}>
 	<p>
 		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
 		labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo

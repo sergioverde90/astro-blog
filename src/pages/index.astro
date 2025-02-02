@@ -46,62 +46,6 @@ import Terminal from '../components/Terminal.astro';
 					>astro-blog-template
 				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
 			</p>
-
-			<h4 style="color: green">// TODO: list of features to implement</h4>
-			<ul>
-				<li>Include Fuse.js for searching (
-					<a href="https://alejandrocelaya.blog/2023/11/05/build-a-search-page-for-your-astro-static-blog-with-fuse-js/"
-					target="_blank" rel="noopener noreferrer"
-					https://alejandrocelaya.blog/2023/11/05/build-a-search-page-for-your-astro-static-blog-with-fuse-js/)>fuse doc</a>)
-				</li>
-				<li>
-					Include OpenGraph for social media sharing.
-				</li>
-				<li>
-					Image and icon optimization.
-				</li>
-				<li>
-					Add internationalization support. (https://docs.astro.build/en/guides/internationalization/)
-				</li>
-				<li>
-					Add terminal animation:
-					<Terminal />
-					<Code code={`/* Google Fonts */
-@import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
-
-/* Cursor */
-.cursor{
-    position: relative;
-    width: 24em;
-    margin: 0 auto;
-    border-right: 2px solid rgba(255,255,255,.75);
-    font-size: 30px;
-    text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    transform: translateY(-50%);    
-}
-/* Animation */
-.typewriter-animation {
-  animation: 
-    typewriter 10s steps(60) 1s 1 normal both, 
-    blinkingCursor 700ms steps(60) infinite normal;
-}
-@keyframes typewriter {
-  from { width: 0; }
-  to { width: 100%; }
-}
-@keyframes blinkingCursor{
-  from { border-right-color: rgba(255,255,255,.75); }
-  to { border-right-color: transparent; }
-}
-
-/* Global */
-body { margin-top: 4em; padding: 5em; color: #f1f1f1; font-family: 'Anonymous Pro', monospace;background-color: #673ab7; }`} lang="css" wrap />
-				</li>
-			</ul>
-			<Code code={`// Javascript code with syntax highlighting. \nvar fun = function lang(l) {`
-			} lang="js" wrap/>
 		</main>
 		<Footer />
 	</body>
