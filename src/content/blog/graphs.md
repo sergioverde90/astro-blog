@@ -161,7 +161,7 @@ A path is a circuit if it starts and ends at the same vertex. In that case $v_0 
 ## Simple paths and circuits (trail)
 A path or a circuit is said to be simple if it has no repeated edges or, in the case of a circuit, it does not have any other repeated vertex than the first and last. ⚠️ Some resources use the term *path* to refer to a *trail* with no repeated vertices, conflicting with this definition of path ⚠️.
 
-### Summary table
+### TODO : Summary table 
 <table class="table2 mqtable3">
     <tbody>
         <tr>
@@ -214,3 +214,6 @@ A path or a circuit is said to be simple if it has no repeated edges or, in the 
         </tr>
     </tbody>
 </table>
+
+## Connected graph
+An U.G is **connected** if there is a path between every pair of distinct vertices. An U.G is **disconected** if it is not connected.

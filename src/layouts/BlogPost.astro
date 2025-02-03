@@ -72,7 +72,11 @@ const { title, description, pubDate, updatedDate, heroImage } = data;
 					<div class="title">
 						<h1>{title}</h1>
 						<div class="date">
-							<FormattedDate date={pubDate} />
+							{ 
+								pubDate && (
+									<FormattedDate date={pubDate} />
+								)
+							}
 							{
 								updatedDate && (
 									<div class="last-updated-on">
