@@ -1,7 +1,7 @@
 # MUST
 
 * Review the Home content
-* Remove the 'About' content replacing it with a 'Resources' section listing books, DSA, talks, etc.
+* Add breadcrumbs component to the Blog page
 * Image and icon optimization.
 * Header logo {}Ssvv ...
 

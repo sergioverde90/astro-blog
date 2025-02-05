@@ -17,6 +17,7 @@ html {
 	scroll-behavior: smooth;
 }
 body {
+	/* npm install @fontsource-variable/raleway */
 	font-family: 'Raleway Variable', 'Comic Sans MS';
 	margin: 0;
 	padding: 0;
