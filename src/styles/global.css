@@ -28,7 +28,7 @@ body {
 	color: rgb(var(--gray-dark));
 	font-size: 18px;
 	line-height: 1.7;
-	background: linear-gradient(#ffffff, #edeadfbe);
+	background-color: #ffffff;
 }
 
 main {
@@ -36,7 +36,7 @@ main {
 	margin: auto;
 	padding: 1em 1em 2em 1em;
 	height: 100%;
-	min-height: 100%;
+	min-height: 100vh;
 }
 h1,
 h2,
