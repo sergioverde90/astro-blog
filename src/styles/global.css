@@ -4,7 +4,9 @@
   License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
  */
 :root {
-	--accent: #1b2eff;
+	--accent: #4474d3;
+	--light-accent: rgba(109, 151, 235, 0.457);
+	--dark-accent: #33508a;
 	--main-color: rgb(50, 61, 85);
 	--black: 15, 18, 25;
 	--gray: 96, 115, 159;
@@ -70,7 +72,12 @@ b {
 a {
 	color: var(--accent);
 	text-decoration: none;
+
+	&:hover {
+		color: var(--dark-accent);
+	}
 }
+
 p {
 	margin-bottom: 1em;
 }
