@@ -8,12 +8,12 @@
 	--light-accent: rgba(109, 151, 235, 0.457);
 	--dark-accent: #33508a;
 	--main-color: rgb(50, 61, 85);
-	--black: 15, 18, 25;
-	--gray: 96, 115, 159;
-	--gray-light: 229, 233, 240;
+	--main-color-light: rgb(89, 111, 161);
+	--highlight: rgba(129, 12, 12, 0.787);
+	--gray-light: 104, 104, 104;
 	--gray-dark: 40, 39, 40;
-	--box-shadow: 0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%),
-		0 16px 32px rgba(var(--gray), 33%);
+	--box-shadow: 0 2px 6px rgba(var(--gray-light), 25%), 0 8px 24px rgba(var(--gray-light), 33%),
+		0 16px 32px rgba(var(--gray-light), 33%);
 }
 html {
 	scroll-behavior: smooth;
@@ -25,10 +25,8 @@ body {
 	padding: 0;
 	text-align: left;
 	background-color: var(--background-color);
-	word-wrap: break-word;
-	overflow-wrap: break-word;
 	color: rgb(var(--gray-dark));
-	font-size: 18px;
+	font-size: 16px;
 	line-height: 1.7;
 	background-color: #ffffff;
 }
@@ -77,7 +75,6 @@ a {
 		color: var(--dark-accent);
 	}
 }
-
 p {
 	margin-bottom: 1em;
 }

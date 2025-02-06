@@ -31,7 +31,7 @@ const isActive = (href === '/' && pathname === '') // is '/' the root path
 	a.active {
 		text-decoration-line: underline;
   		text-decoration-style: solid;
-  		text-decoration-color: rgba(129, 12, 12, 0.787);
+  		text-decoration-color: var(--highlight);
 		text-underline-offset: 6px;
 		text-decoration-thickness: 2px;
 		font-weight: 700;
@@ -39,7 +39,7 @@ const isActive = (href === '/' && pathname === '') // is '/' the root path
 	a:not(.active):hover {
 		text-decoration-line: underline;
   		text-decoration-style: solid;
-  		text-decoration-color: rgb(var(--gray-light));
+  		text-decoration-color: rgb(230, 230, 230);
 		text-underline-offset: 6px;
 		text-decoration-thickness: 2px;
 	}

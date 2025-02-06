@@ -68,14 +68,13 @@ const page = Astro.props.page;
         auto-fill, 
         minmax(220px, 1fr)
     );
-    /* when rows are auto-generated, set the height of each row */
     /* grid gap */
     gap: 15px;
 }
 .blog-post {
-    background-color: rgb(248, 248, 248);
+    background-color: #fff;
     border-radius: 8px;
-    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.205);
+    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.126);
     transition: all 0.3s ease;
 }
 .blog-post:hover {
@@ -105,7 +104,7 @@ const page = Astro.props.page;
     padding-top: 0px;
     max-height: 100px;
     min-height: 100px;
-    color: rgb(106, 118, 143);
+    color: rgb(var(--gray-light));
 }
 .pub-date {
     left: 0;
