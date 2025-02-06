@@ -23,7 +23,7 @@ body {
 	font-family: 'Raleway Variable', 'Comic Sans MS';
 	margin: 0;
 	padding: 0;
-	text-align: left;
+	text-align: justify;
 	background-color: var(--background-color);
 	color: rgb(var(--gray-dark));
 	font-size: 16px;
@@ -98,7 +98,7 @@ img {
 /** for `code` snippets */
 code {
 	padding: 2px 5px;
-	background-color: rgb(var(--gray-light));
+	background-color: rgba(var(--gray-light), 25%);
 	border-radius: 2px;
 	font-size: 0.8em;
 }
@@ -126,15 +126,6 @@ blockquote {
 hr {
 	border: none;
 	border-top: 1px solid rgb(var(--gray-light));
-}
-
-@media (max-width: 720px) {
-	body {
-		font-size: 18px;
-	}
-	main {
-		padding: 1em;
-	}
 }
 
 .sr-only {
