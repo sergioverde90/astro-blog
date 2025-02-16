@@ -2,8 +2,8 @@
 title: 'LLMs cheatsheet'
 description: 'This is a cheatsheet for LLM lore, including some terminology and information about LLMs'
 pubDate: 'Jul 08 2022'
-heroImage: '/blog-placeholder-3.jpg'
-draft: true
+heroImage: '/blog-placeholder-1.jpg'
+draft: false
 ---
 
 # What the heck is a model template?

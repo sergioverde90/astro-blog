@@ -3,7 +3,7 @@ title: "What's next?"
 description: 'Next blog entries comming soon!'
 pubDate: 'Jun 19 2024'
 heroImage: '/blog-placeholder-1.jpg'
-draft: true
+draft: false
 ---
 
 * Bootstrap the blog talking about what topics I'm going to cover, based on this https://roadmap.sh/backend and this https://roadmap.sh/computer-science

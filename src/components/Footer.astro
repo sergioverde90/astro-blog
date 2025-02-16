@@ -8,7 +8,6 @@ const today = new Date();
 	&copy; {today.getFullYear()} {SITE_TITLE}. All rights reserved.
 	<div class="social-links">
 		<a href="https://github.com/sergioverde90" target="_blank">
-			<span class="sr-only">Go to Astro's GitHub repo</span>
 			<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" astro-icon="social/github"
 				><path
 					fill="currentColor"
@@ -22,7 +21,7 @@ const today = new Date();
 	footer {
 		padding: 2em 1em 6em 1em;
 		background: transparent;
-		color: rgb(var(--gray));
+		color: var(--main-color);
 		text-align: center;
 	}
 
@@ -34,7 +33,7 @@ const today = new Date();
 	}
 	.social-links a {
 		text-decoration: none;
-		color: rgb(var(--gray));
+		color: var(--main-color);
 		transition: all 0.2s ease;
 	}
 	.social-links a:hover {
