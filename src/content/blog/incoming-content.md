@@ -13,6 +13,8 @@ draft: false
 * Add short posts tagged as [TIP]
 * [TIP] Talk about Spring Boot `@ConditionalOnXXXXX`
 * [TIP] XOR for mutual exclusion parameters (param1 ^ param2)
+* [TIP] Cost of array allocation when initialize a list without the int parameter
+* OAuth2 + Keycloak (un ejemplo rápido de integración de un flujo de OAuth2 con Keycloak usando Spring)
 * Design patterns
 * Java NIO
 * Astro pagination
