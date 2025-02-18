@@ -36,8 +36,8 @@ const page = Astro.props.page;
 				<a href={`/blog/${post.id}/`}>
 					<article class="blog-post">
 						<div class="content-column">
-							<h2>{post.data.title}</h2>
-                            <span class="pub-date"><FormattedDate date={post.data.pubDate} /></span>
+							<h2 transition:name={post.id}>{post.data.title}</h2>
+                            <span class="pub-date" transition:name={post.id + "-pubdate"}><FormattedDate date={post.data.pubDate} /></span>
                             <p class="post-description">{post.data.description}</p>
 						</div>
 					</article>

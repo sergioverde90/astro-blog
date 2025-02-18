@@ -59,19 +59,10 @@ const { title, description, pubDate, updatedDate, heroImage } = data;
 		<Header />
 		<main>
 			<article>
-				<div class="hero-image">
-					{heroImage && 
-						<img transition:name={id} 
-							width={720}
-							src={heroImage} 
-							alt="" 
-						/>
-					}
-				</div>
 				<div class="prose">
 					<div class="title">
-						<h1>{title}</h1>
-						<div class="date">
+						<h1 transition:name={id}>{title}</h1>
+						<div class="date" transition:name={id + "-pubdate"}>
 							{ 
 								pubDate && (
 									<FormattedDate date={pubDate} />

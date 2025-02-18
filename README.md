@@ -1,8 +1,9 @@
 # MUST
 
-* Add breadcrumbs component to the Blog page
+* Add a "Go back" button in the blog pages
 * Header logo {}Ssvv ...
 * Add a 404 page (maybe this is a good place to put the Terminal ...)
+* Fix pagination styles 
 
 # SHOULD
 * Image and icon optimization.

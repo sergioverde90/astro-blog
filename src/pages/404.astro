@@ -1,0 +1,20 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Terminal from "../components/Terminal.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+---
+<!doctype html>
+<html lang="es">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    </head>
+    <body>
+        <Header />
+        <main>
+            <Terminal>
+                <terminal-line>ERROR 404: Content not found...</terminal-line>
+            </Terminal>
+        </main>
+    </body>
+</html>
