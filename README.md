@@ -2,6 +2,7 @@
 
 * Add breadcrumbs component to the Blog page
 * Header logo {}Ssvv ...
+* Add a 404 page (maybe this is a good place to put the Terminal ...)
 
 # SHOULD
 * Image and icon optimization.
