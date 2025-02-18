@@ -1,31 +1,70 @@
 ---
-
 ---
-<div class="terminal" >
+<div id="terminal" class="terminal" >
   <div class="terminal-buttons">
     <span class="terminal-button close">x</span>
     <span class="terminal-button minimize">-</span>
     <span class="terminal-button zoom">&lt;&gt;</span>
   </div>
-  <div class="terminal-prompt">
-    <div class="terminal-start-typing">
-      <span> &gt; </span>
-    </div> 
-    <div class="cursor typewriter-animation">
-        <span><slot /></span>
-    </div>
-  </div>
 </div>
+
+<!-- this component can be anywhere because it's hidden 
+  and it's only used to be cloned -->
+<div class="terminal-prompt" style="visibility: hidden;">
+  <div class="terminal-start-typing"> <span> &gt; </span></div> 
+  <div><slot/></div>
+</div>
+
+<script>
+    var toClone = document.getElementsByClassName("terminal-prompt")[0] as HTMLElement;
+    var lines = document.getElementsByClassName("terminal-line") as HTMLCollectionOf<HTMLElement>
+
+    var delay = 0;
+    let lastElementAdded : HTMLElement;
+
+    for(let line of lines) {
+      var delayValue = parseInt(line.classList[1].split("-")[1]);
+      delay += delayValue;
+      setTimeout(() => { lastElementAdded = addElement(line); }, delay);
+    }
+
+    function addElement(terminalLine : HTMLElement) {
+      if (lastElementAdded != null) { lastElementAdded.style.border = "none"; }
+      var clone = toClone.cloneNode(true) as HTMLElement;
+      clone.style.visibility = "visible";
+
+      var child = clone.children[1] as HTMLElement;
+      
+      // if it's an output line, add the writting animation
+      child.textContent = terminalLine.textContent;
+      if (terminalLine.classList.contains("input")) {
+        child.classList.add("cursor");
+        child.classList.add("typewriter-animation");
+      } else {
+        var typsddf = clone.children[0] as HTMLElement;
+        typsddf.style.visibility = "hidden";
+      }
+
+      // Append the new element and scroll the terminal to the bottom
+      var terminalEl = document.getElementById("terminal") as HTMLElement;
+      terminalEl.appendChild(clone);
+      terminalEl.scrollTop = terminalEl.scrollHeight;
+
+      return child;
+    }
+</script>
 
 <style>
 @import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
 .terminal {
-  height: 500px;
-  width: 850px;
-  border-radius: 10px;
+  font-family: 'Anonymous Pro', monospace;
+  height: 300px;
+  width: 100%;
+  border-radius: 10px 10px 10px 10px;
   background-color: rgb(28, 28, 28);
   float: left;
   margin: 0px 20px 20px 0px;
+  overflow: scroll;
 }
 
 .terminal-buttons {
@@ -69,11 +108,12 @@
   padding-top: 2%;
   color: #1ab708; 
   background-color: rgb(28, 28, 28);
+  font-size: medium;
 }
 
 .terminal-start-typing {
   display: block;
-  width: 5%;
+  width: 25px;
   padding-left: 3%;
 }
 
@@ -81,7 +121,6 @@
     border-right: 2px solid #1ab708;
     white-space: nowrap;
     overflow: hidden;
-    font-family: 'Anonymous Pro', monospace;
     background-color: rgb(28, 28, 28);
     max-width: fit-content;
 }
