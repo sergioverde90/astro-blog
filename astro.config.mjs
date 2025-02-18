@@ -12,6 +12,9 @@ import remarkCollapse from "remark-collapse";
 export default defineConfig({
 	site: 'https://blog.ssvv.dev',
 	integrations: [mdx(), sitemap()],
+	redirects : {
+		'/' : '/blog/1'
+	},
 	markdown: {
 		remarkPlugins: [ remarkMath, remarkToc, [remarkCollapse,
 			{
