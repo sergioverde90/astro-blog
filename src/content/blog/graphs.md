@@ -10,8 +10,6 @@ draft: false
 
 https://youtube.com/playlist?list=PLQfaHkBRINsyhWCYlh9j5uf687UEMZPTD&si=MzVrr6LvOjLEIeLO
 
-## Table of Contents
-
 # Undirected Graphs (U.G)
 
 ### **Definition of U.G.**
