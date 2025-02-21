@@ -41,32 +41,21 @@ const { title, description, pubDate, updatedDate } = data;
 			#go-back {
 				cursor: pointer;
 				padding: 0 0.2em 0 0;
-			}
-			#go-back svg path {
-				fill: rgb(220, 220, 220);
-				transition: all 0.2s ease;
-			}
-			#go-back svg:hover path {
-				fill: var(--highlight);
+
+				& svg path {
+					fill: rgb(220, 220, 220);
+					transition: all 0.2s ease;
+				}
+
+				& svg:hover path {
+					fill: var(--highlight);
+				}
 			}
 			.anchor {
-				display: inline;
+				color: green;
 			}
 		</style>
-		<script>
-			const linkSvg = `#`;
-
-			document.querySelectorAll("h2").forEach((heading) => {
-				const anchor = document.createElement("a");
-				anchor.className = "anchor";
-				anchor.href = `#${heading.id}`;
-				anchor.textContent = " " + linkSvg;
-
-				heading.appendChild(anchor);
-			});
-		</script>
 	</head>
-
 	<body>
 		<Header />
 		<main>
@@ -99,5 +88,16 @@ const { title, description, pubDate, updatedDate } = data;
 			</article>
 		</main>
 		<Footer />
+		<script is:inline>
+			document.querySelectorAll("h2").forEach((heading) => {
+				const linkSvg = `#`;
+				const anchor = document.createElement("a");
+				anchor.className = "anchor";
+				anchor.href = `#${heading.id}`;
+				anchor.textContent = " " + linkSvg;
+		
+				heading.appendChild(anchor);
+			});
+		</script>
 	</body>
 </html>
