@@ -1,10 +1,13 @@
 # MUST
 
-* Add a "Go back" button in the blog pages
+* Finish the 404 terminal...
 * Header logo {}Ssvv ...
 * Fix pagination styles 
+* Review TODO's
+* Add LinkedIn to footer
 
 # SHOULD
+* Añadir botón de "descargar curriculum"
 * Image and icon optimization.
 * Include Fuse.js for searching
 * Include OpenGraph for social media sharing.

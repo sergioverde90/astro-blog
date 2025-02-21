@@ -8,7 +8,9 @@
 	--light-accent: rgba(109, 151, 235, 0.457);
 	--dark-accent: #33508a;
 	--main-color: rgb(50, 61, 85);
-	--main-color-light: rgb(89, 111, 161);
+	--main-color-h2: rgb(77, 94, 139);
+	--main-color-h3: rgb(99, 111, 141);
+	--main-color-extra-light: rgb(136, 147, 167);
 	--highlight: rgba(129, 12, 12, 0.787);
 	--gray-light: 104, 104, 104;
 	--gray-dark: 40, 39, 40;
@@ -26,7 +28,7 @@ body {
 	text-align: justify;
 	background-color: var(--background-color);
 	color: rgb(var(--gray-dark));
-	font-size: 16px;
+	font-size: 17px;
 	line-height: 1.7;
 	background-color: #ffffff;
 }
@@ -37,30 +39,48 @@ main {
 	padding: 1em 1em 2em 1em;
 	height: 100%;
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	margin: 0 0 0.5rem 0;
+h1 {
+	margin: 0.5em 0 0 0;
 	color: var(--main-color);
+	line-height: 1.2;
+	text-align: left;
+}
+h2{
+	margin: 1em 0 0 0;
+	color: var(--main-color-h2);
+	line-height: 1.2;
+	text-align: left;
+} 
+h3 {
+	margin: 0.5em 0 0.5em 0;
+	color: var(--main-color-h3);
+	line-height: 1.2;
+}
+h4 {
+	margin: 0.8em 0 0 0;
+	color: var(--main-color-extra-light);
+	line-height: 1.2;
+}
+h5, 
+h6 {
+	margin: 0.7em 0 0 0;
+	color: var(--main-color-extra-light);
 	line-height: 1.2;
 }
 h1 {
-	font-size: 3.052em;
+	font-size: 2.052em;
 }
 h2 {
-	font-size: 2.441em;
+	font-size: 1.6em;
 }
 h3 {
-	font-size: 1.953em;
+	font-size: 1.2em;
 }
 h4 {
-	font-size: 1.563em;
+	font-size: 0.963em;
 }
 h5 {
-	font-size: 1.25em;
+	font-size: 0.863em;
 }
 strong,
 b {
@@ -125,22 +145,4 @@ blockquote {
 hr {
 	border: none;
 	border-top: 1px solid rgb(var(--gray-light));
-}
-
-.sr-only {
-	border: 0;
-	padding: 0;
-	margin: 0;
-	position: absolute !important;
-	height: 1px;
-	width: 1px;
-	overflow: hidden;
-	/* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
-	clip: rect(1px 1px 1px 1px);
-	/* maybe deprecated but we need to support legacy browsers */
-	clip: rect(1px, 1px, 1px, 1px);
-	/* modern browsers, clip-path works inwards from each corner */
-	clip-path: inset(50%);
-	/* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
-	white-space: nowrap;
 }

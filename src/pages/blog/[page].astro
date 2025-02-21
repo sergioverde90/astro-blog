@@ -36,7 +36,7 @@ const page = Astro.props.page;
 				<a href={`/blog/${post.id}/`}>
 					<article class="blog-post">
 						<div class="content-column">
-							<h2 transition:name={post.id}>{post.data.title}</h2>
+							<h1 transition:name={post.id}>{post.data.title}</h1>
                             <span class="pub-date" transition:name={post.id + "-pubdate"}><FormattedDate date={post.data.pubDate} /></span>
                             <p class="post-description">{post.data.description}</p>
 						</div>
@@ -62,13 +62,7 @@ const page = Astro.props.page;
     padding: 10px;
 }
 .content-column h2 {
-    font-size: x-large;
     display: inline;
-    font-weight: bold;
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-bottom: 0px;
-    color: var(--main-color);
 }
 .pub-date {
     color: #929191a9;
@@ -77,9 +71,6 @@ const page = Astro.props.page;
 .post-description {
     font-size: 85%;
     font-weight: 500;
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-top: 0px;
     color: rgb(var(--gray-light));
 }
 </style>
