@@ -5,26 +5,29 @@ const {page} = Astro.props;
 <nav class="pagination">
     {
         page.url.prev && (
-            <a href={page.url.prev} rel="prev">&lt;&lt; Previous</a>
+            <a href={page.url.prev} rel="prev">&lt;&lt; </a>
         )
     }
+    
     {page.currentPage} / {page.lastPage}
     
     {
         page.url.next && (
-            <a href={page.url.next} rel="next">Next &gt;&gt;</a>
+            <a href={page.url.next} rel="next"> &gt;&gt;</a>
         )
     }
 
 </nav>
 
 <style>
-.pagination{
-    padding-top: 15px;
-    text-align: center;
-}
+    .pagination {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
 
-.pagination a {
-    text-decoration: none;
+    .pagination a {
+        padding: 0 1em 0 1em;
+        text-decoration: none;
 }
 </style>

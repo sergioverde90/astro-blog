@@ -1,7 +1,6 @@
 # MUST
 
 * Finish the 404 terminal...
-* Fix pagination styles 
 * Review TODO's
 * Add LinkedIn to footer
 * Poner el contenido en español
@@ -14,5 +13,6 @@
 * Add internationalization support. [Astro internationalization](https://docs.astro.build/en/guides/internationalization/)
 * Add tagging
 * Add a "Study guide" section and talk about: discrete math, calculus, etc.
+* Improve pagination styles 
 
 # COULD
