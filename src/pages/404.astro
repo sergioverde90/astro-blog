@@ -1,39 +1,50 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import Terminal from "../components/Terminal.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+
+const canonicalURL = Astro.url.pathname;
+const notFoundHtmlOpen = "<html>";
+const notFoundHtmlHead = "<head><title>404 Not Found</title></head>";
+const notFoundHtmlBodyOpen = "<body>";
+const notFoundHtmlBody404 = "<center><h1>404 Not Found</h1></center>";
+const notFoundHtmlBodyNginx = "<hr><center>nginx/1.18.0</center>";
+const notFoundHtmlBodyClose = "</body>";
+const notFoundHtmlClose = "</html>";
+
 ---
 <!doctype html>
 <html lang="es">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+        <style>
+            main {
+                height: 350px;
+            }
+        </style>
     </head>
     <body>
         <Header />
         <main>
             <Terminal>
-                <span class="terminal-line delay-0 input">curl -i this-page</span>
-                <span class="terminal-line delay-3500 output">NOT FOUND</span>
-                <span class="terminal-line delay-000 input">curl -i WTF??????</span>
-                <span class="terminal-line delay-3500 output">NOT FOUND</span>
-                <span class="terminal-line delay-000 input">sudo rm -dfr /</span>
-                <span class="terminal-line delay-0 input">curl -i this-page</span>
-                <span class="terminal-line delay-3500 output">NOT FOUND</span>
-                <span class="terminal-line delay-000 input">curl -i WTF??????</span>
-                <span class="terminal-line delay-3500 output">NOT FOUND</span>
-                <span class="terminal-line delay-000 input">sudo rm -dfr /</span>
-                <span class="terminal-line delay-0 input">curl -i this-page</span>
-                <span class="terminal-line delay-3500 output">NOT FOUND</span>
-                <span class="terminal-line delay-000 input">curl -i WTF??????</span>
-                <span class="terminal-line delay-3500 output">NOT FOUND</span>
-                <span class="terminal-line delay-000 input">sudo rm -dfr /</span>
-                <span class="terminal-line delay-0 input">curl -i this-page</span>
-                <span class="terminal-line delay-3500 output">NOT FOUND</span>
-                <span class="terminal-line delay-000 input">curl -i WTF??????</span>
-                <span class="terminal-line delay-3500 output">NOT FOUND</span>
-                <span class="terminal-line delay-000 input">sudo rm -dfr /</span>
+                <span class="terminal-line delay-0 input">curl -i {canonicalURL}</span>
+                <span class="terminal-line delay-3500 output">{notFoundHtmlOpen}</span>
+                <span class="terminal-line delay-000 output">{notFoundHtmlHead}</span>
+                <span class="terminal-line delay-000 output">{notFoundHtmlBodyOpen}</span>
+                <span class="terminal-line delay-000 output">{notFoundHtmlBody404}</span>
+                <span class="terminal-line delay-000 output">{notFoundHtmlBodyNginx}</span>
+                <span class="terminal-line delay-000 output">{notFoundHtmlBodyClose}</span>
+                <span class="terminal-line delay-000 output">{notFoundHtmlClose}</span>
+                <span class="terminal-line delay-000 input">here we go again...</span>
+                <span class="terminal-line delay-3500 output">command not found: here we go again....</span>
+                <span class="terminal-line delay-000 input">exit</span>
+                <span class="terminal-line delay-2000 output">Saving session...completed.</span>
+                <span class="terminal-line delay-000 output">Deleting expired sessions...       1 completed.</span>
+                <span class="terminal-line delay-000 output">[Proceso completado]</span>
             </Terminal>
         </main>
+        <Footer />
     </body>
 </html>

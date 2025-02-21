@@ -1,6 +1,5 @@
 # MUST
 
-* Finish the 404 terminal...
 * Review TODO's
 * Add LinkedIn to footer
 * Poner el contenido en español
