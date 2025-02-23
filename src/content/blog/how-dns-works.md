@@ -3,7 +3,7 @@ title: 'How DNS works'
 description: 'This post talks about what is DNS, how it works and what are the essential components that it uses'
 pubDate: 'Jul 08 2022'
 heroImage: '/blog-placeholder-1.jpg'
-draft: false
+draft: true
 ---
 
 ## Terminology

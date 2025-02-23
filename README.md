@@ -4,6 +4,7 @@
 * Poner el contenido en español
 
 # SHOULD
+* Hacer que el footer se vea siempre al final de la página
 * Añadir botón de "descargar curriculum"
 * Image and icon optimization.
 * Include Fuse.js for searching
