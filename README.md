@@ -1,7 +1,6 @@
 # MUST
 
 * Review TODO's
-* Add LinkedIn to footer
 * Poner el contenido en español
 
 # SHOULD
