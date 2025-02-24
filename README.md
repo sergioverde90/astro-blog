@@ -2,6 +2,7 @@
 
 * Review TODO's
 * Poner el contenido en español
+* favicon
 
 # SHOULD
 * Hacer que el footer se vea siempre al final de la página
