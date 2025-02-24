@@ -7,25 +7,11 @@ import FormattedDate from '../components/FormattedDate.astro';
 const { data, id } = Astro.props.post;
 const { title, description, pubDate, updatedDate } = data;
 
-const { class: className, ...rest } = Astro.props;
-
-console.log(className);
-
 ---
 
 <html lang="es">
 	<head>
 		<style>
-			.prose {
-				width: 720px;
-				max-width: calc(100% - 2em);
-				margin: auto;
-				padding: 1em;
-				color: rgb(var(--gray-dark));
-			}
-			.prose a {
-				color: rgb(220, 220, 220);
-			}
 			.title {
 				display: flex;
 				justify-content: space-between ;
@@ -36,7 +22,7 @@ console.log(className);
 			.date {
 				color: rgb(160, 160, 160);
 				padding-left: 40px;
-				padding-top: 2px;
+				padding-top: 8px;
 				margin-right: 12px;
 				font-size: small;
 				text-align: left;
@@ -88,23 +74,9 @@ console.log(className);
 						}
 					</div>
 				</div>
-				<div class="prose" class={className} {...rest}>
-					<slot />
-				</div>
+				<slot />
 			</article>
 		</main>
 		<Footer />
-		<script is:inline>
-			document.querySelectorAll("h2").forEach((heading) => {
-				if (heading.id) {
-					const linkSvg = `#`;
-					const anchor = document.createElement("a");
-					anchor.href = `#${heading.id}`;
-					anchor.style.color  = "rgb(220, 220, 220)"
-					anchor.textContent = " " + linkSvg;
-					heading.appendChild(anchor);
-				}
-			});
-		</script>
 	</body>
 </html>
