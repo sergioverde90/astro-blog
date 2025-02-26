@@ -17,8 +17,9 @@
 	--box-shadow: 0 2px 6px rgba(var(--gray-light), 25%), 0 8px 24px rgba(var(--gray-light), 33%),
 		0 16px 32px rgba(var(--gray-light), 33%);
 }
-html {
+html, body {
 	scroll-behavior: smooth;
+	height: 100%;
 }
 body {
 	/* npm install @fontsource-variable/raleway */
@@ -31,12 +32,20 @@ body {
 	font-size: 17px;
 	line-height: 1.7;
 	background-color: #ffffff;
+	height: 100%;
+
+	/* to make the footer always bottom */
+	display: flex;
+  	flex-direction: column;
 }
 
 main {
 	max-width: 800px;
 	margin: auto;
 	padding: 1em 1em 2em 1em;
+
+	/* to make the footer always bottom */
+	flex: 1 0 auto;
 }
 h1 {
 	margin: 0.5em 0 0 0;
