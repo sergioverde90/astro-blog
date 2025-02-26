@@ -19,8 +19,5 @@
     "rehype-katex": "^7.0.1",
     "rehype-toc": "^3.0.2",
     "remark-math": "^6.0.0"
-  },
-  "resolutions": {
-    "rollup": "npm:@rollup/wasm-node"
   }
 }
