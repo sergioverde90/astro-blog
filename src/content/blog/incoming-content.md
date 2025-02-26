@@ -6,7 +6,6 @@ heroImage: '/blog-placeholder-1.jpg'
 draft: true
 ---
 
-* Bootstrap the blog talking about what topics I'm going to cover, based on this https://roadmap.sh/backend and this https://roadmap.sh/computer-science
 * Minimal technologies for a Backend engineer.
 * DDD (namelly, strategic DDD, Event-Storming)
 * Database internals
@@ -18,3 +17,4 @@ draft: true
 * Design patterns
 * Java NIO
 * Astro pagination
+* A post talking about why there is a lot of information about time complexity analysis for algorithms, but not about how to analyze code step by step in order to extract that information for further analysis.

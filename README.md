@@ -6,3 +6,4 @@
 * Add tagging
 * Add a "Study guide" section and talk about: discrete math, calculus, etc.
 * Improve pagination styles 
+* Crear un componente colapsable para las pruebas matemáticas

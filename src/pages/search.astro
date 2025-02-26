@@ -1,0 +1,117 @@
+---
+import { type CollectionEntry, getCollection } from 'astro:content';
+import type { GetStaticPaths, Page } from 'astro';
+
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+
+export const getStaticPaths : GetStaticPaths = async ({ paginate }) => {
+    const posts = (await getCollection('blog'))
+        .filter(post => !post.data.draft)
+        .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+    );
+    
+    return paginate(posts, { pageSize: 9 });
+};
+
+type Props = {
+  page: Page<CollectionEntry<'blog'>>;
+};
+
+---
+
+<html lang="en">
+<BaseHead title={`${SITE_TITLE} | Blog`} description={SITE_DESCRIPTION} />
+<style>
+    .custom {
+        max-width: 800px;
+        display: flex;
+        flex-direction: column;
+
+        .post-description {
+            font-size: 85%;
+            font-weight: 500;
+            color: rgb(var(--gray-light));
+        }
+    }
+</style>
+
+<script>
+    import Fuse from 'fuse.js';
+
+    let SEARCH_DATA : string;
+    let FUSE : Fuse<unknown>;
+
+    const search : HTMLInputElement= document.querySelector("#search");
+
+    window.addEventListener("DOMContentLoaded", () => {
+        const searchTerm = new URLSearchParams(window.location.search).get("q");
+        search.value = searchTerm; // put the same value in the searchbox
+
+        fetchSearchResults(searchTerm);
+    });
+
+    search.addEventListener("input", () => {
+        const searchTerm = search.value;
+        fetchSearchResults(searchTerm);
+    });
+
+    function generateResultList(results) {
+        return results.map(r => {
+            const { id, title, description, body } = r.item;
+            return `
+                <a href="/blog/${id}">
+                    <article class="blog-post">
+                        <div class="content-column">
+                            <h1 transition:name=${id}>${title}</h1>
+                            <p class="post-description">${description}</p>
+                        </div>
+                    </article>
+                </a>
+            `
+        }).join("");;
+    }
+
+    async function fetchSearchResults(searchTerm: string | null) {
+        if (!searchTerm) return;
+        
+        if (!SEARCH_DATA) {
+            console.log("entrando");
+            const res = await fetch("/search.json");
+            const data = await res.json();
+
+            SEARCH_DATA = data;
+
+            FUSE = new Fuse(data, {
+                includeScore : true,
+                shouldSort : true,
+                ignoreLocation: true,
+                threshold: 0.4,
+                keys: [
+                    {
+                        name : "title",
+                        weight: 1
+                    }
+                ]
+            });
+        }
+                        
+        var results = FUSE.search(searchTerm);
+
+        document.querySelector("#searchResults").innerHTML 
+            = results.length > 0 ? generateResultList(results) : "";
+
+    }
+</script>
+<body>
+	<Header />
+    <main>
+        <div id="searchResults" class="custom"></div>
+    </main>
+	<Footer />
+</body>
+</html>

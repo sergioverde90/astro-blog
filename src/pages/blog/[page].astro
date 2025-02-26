@@ -9,6 +9,7 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
 import Pagination from '../../components/Pagination.astro';
+import Card from '../../components/Card.astro';
 
 export const getStaticPaths : GetStaticPaths = async ({ paginate }) => {
     const posts = (await getCollection('blog'))
@@ -33,44 +34,24 @@ const page = Astro.props.page;
     <main>
         <div class="blog-posts">
             {page.data.map(post => (
-				<a href={`/blog/${post.id}/`}>
-					<article class="blog-post">
-						<div class="content-column">
-							<h1 transition:name={post.id}>{post.data.title}</h1>
-                            <span class="pub-date" transition:name={post.id + "-pubdate"}><FormattedDate date={post.data.pubDate} /></span>
-                            <p class="post-description">{post.data.description}</p>
-						</div>
-					</article>
-				</a>
+                <Card id={post.id} data={post.data} />
             ))}
         </div>
         <Pagination page={page} />
-
     </main>
 	<Footer />
 </body>
 </html>
 
-<style>
-.blog-post {
-    background-color: #fff;
-    transition: all 0.3s ease;
-    display: flex;
-    margin-bottom: 20px;
-}
-.content-column {
-    padding: 10px;
-}
-.content-column h2 {
-    display: inline;
-}
-.pub-date {
-    color: #929191a9;
-    font-size: small;
-}
-.post-description {
-    font-size: 85%;
-    font-weight: 500;
-    color: rgb(var(--gray-light));
-}
-</style>
+<script is:inline>
+    document.getElementById("submit")?.addEventListener("click", (e) => {
+        const searchData = document.getElementById("search").value;
+    
+        if (!searchData) return;
+    
+        // TODO: sanitize url
+        const url = new URL("/search", window.location.origin);
+        url.searchParams.set("q", searchData);
+        window.location.replace(url.toString());
+    });
+</script>

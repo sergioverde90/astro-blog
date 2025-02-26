@@ -1,0 +1,42 @@
+---
+import FormattedDate from "./FormattedDate.astro";
+
+const {id} = Astro.props;
+const {title, pubDate, description} = Astro.props.data;
+---
+
+<a href={`/blog/${id}/`}>
+    <article class="blog-post">
+        <div class="content-column">
+            <h1 transition:name={id}>{title}</h1>
+            <span class="pub-date" transition:name={id + "-pubdate"}>
+                <FormattedDate date={pubDate} />
+            </span>
+            <p class="post-description">{description}</p>
+        </div>
+    </article>
+</a>
+
+<style>
+    .blog-post {
+        background-color: #fff;
+        transition: all 0.3s ease;
+        display: flex;
+        margin-bottom: 20px;
+    }
+    .content-column {
+        padding: 10px;
+    }
+    .content-column h2 {
+        display: inline;
+    }
+    .pub-date {
+        color: #929191a9;
+        font-size: small;
+    }
+    .post-description {
+        font-size: 85%;
+        font-weight: 500;
+        color: rgb(var(--gray-light));
+    }
+</style>
