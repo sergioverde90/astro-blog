@@ -1,4 +1,6 @@
 # TODO
+* Mejorar la presentación del listado de posts, parece que desde la vista mobile no se llega a apreciar que tienes que clicar en el post
+para abrirlo. Quizá añadir un botón "leer más..."
 * Añadir botón de "descargar curriculum"
 * Image and icon optimization.
 * Include Fuse.js for searching (https://www.youtube.com/watch?v=XnV_2MWqAhQ)

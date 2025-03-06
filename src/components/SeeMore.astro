@@ -1,0 +1,37 @@
+--- 
+interface Props {
+	description: string;
+    url : string
+}
+
+const { description, url } = Astro.props;
+
+const length = description.length;
+const shortDescription = description.length > 150 
+    ? description.substring(0, 150).concat(" ...") : description;
+
+---
+{ 
+    length > 150 ? (
+        <p class="post-description">{shortDescription}
+            <span class="see-more"> Leer más</span>
+        </p>
+    ) : (<p class="post-description">{shortDescription}</p>) 
+}
+
+<style>
+.post-description {
+    font-size: 85%;
+    font-weight: 500;
+    color: rgb(var(--gray-light));
+}
+.see-more {
+    cursor: pointer;
+    color: var(--accent);
+    transition: all 0.2s ease;
+
+	&:hover {
+		color: var(--dark-accent);
+	}
+}
+</style>
