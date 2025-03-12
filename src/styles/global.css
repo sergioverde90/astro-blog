@@ -149,7 +149,7 @@ pre > code {
 	all: unset;
 }
 blockquote {
-	border-left: 4px solid rgb(164, 182, 222);;
+	border-left: 4px solid rgb(164, 182, 222);
 	padding: 0.2em 1em 0.2em 0.8em;
 	font-size: 0.85em;
 	color:rgb(105 127 174);
@@ -162,4 +162,11 @@ blockquote {
 hr {
 	border: none;
 	border-top: 1px solid rgb(var(--gray-light));
+}
+.whisper {
+	display: block;
+	text-align: right;
+	font-size: x-small;
+	font-style: oblique;
+	color: rgb(var(--gray-light));
 }

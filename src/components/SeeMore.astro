@@ -5,14 +5,14 @@ interface Props {
 }
 
 const { description, url } = Astro.props;
-
+const MAX_DESCRIPTION_LENGTH = 250;
 const length = description.length;
-const shortDescription = description.length > 150 
-    ? description.substring(0, 150).concat(" ...") : description;
+const shortDescription = description.length > MAX_DESCRIPTION_LENGTH 
+    ? description.substring(0, MAX_DESCRIPTION_LENGTH).concat(" ...") : description;
 
 ---
 { 
-    length > 150 ? (
+    length > MAX_DESCRIPTION_LENGTH ? (
         <p class="post-description">{shortDescription}
             <span class="see-more"> Leer más</span>
         </p>

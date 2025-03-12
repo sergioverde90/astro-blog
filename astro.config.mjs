@@ -6,6 +6,7 @@ import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import { rehypeHeadingIds } from '@astrojs/markdown-remark';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
+import {transformerNotationFocus} from '@shikijs/transformers'
 
 // https://astro.build/config
 export default defineConfig({
@@ -35,6 +36,9 @@ export default defineConfig({
 		shikiConfig: {
 		  themes: { light: "material-theme", dark: "night-owl" },
 		  wrap: true,
+		  transformers: [
+			transformerNotationFocus()
+		  ]
 		},
 	  },
 });
