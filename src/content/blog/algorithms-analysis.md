@@ -145,7 +145,7 @@ Para empezar, vamos a desglosar un poco esas categorías, en orden decreciente a
 
 * $\Omicron(log(n))$ : **Rendimiento logarítmico**, prácticamente se puede considerar constante porque crece muy lentamente a medida que el número de datos de entrada aumenta. 
 
-> Por ejemplo, supongamos que diseñamos un algoritmo que es capaz de ordenar un conjunto de elementos en tiempo logarítmico. Si el conjunto de datos tiene por ejemplo 10 elementos, mi algoritmo tardaría 1 milisegundo en resolver el problema. Para 100 elementos, tardaría 2 milisegundo de tiempo, para 1000 tardaría 3 milisegundo, y así sucesivamente. Encontrar un elemento dado en una lista de elementos previamente ordenada tiempo logarítmico.
+> Por ejemplo, supongamos que diseñamos un algoritmo que es capaz de ordenar un conjunto de elementos en tiempo logarítmico. Si el conjunto de datos tiene, por ejemplo, 10 elementos, mi algoritmo tardaría 1 milisegundo en resolver el problema. Para 100 elementos, tardaría 2 milisegundo, para 1000 tardaría 3 milisegundo, y así sucesivamente. Encontrar un elemento dado en una lista de elementos previamente ordenada tiene complejidad logarítmico.
 >
 > Actualmente no existe ningún algoritmo **de ordenación** capaz de ordenar con esta complejidad asintótica.
 
@@ -188,7 +188,7 @@ La expresión anterior dice que $\Omicron(g(n))$ es el conjunto de funciones $f(
 
 Pongamos un par de ejemplos prácticos para que se vea claramente: ¿ $x^2 + 2x + 1 = \Omicron(x^2)$ ?
 
-Según la definición, debería haber una constante $c$ y un valor mínimo de $k$ tal que, multiplicar esa $c$ por $x^2$, *(nuestra $g(x)$)* hace que:  $x^2 + 2x + 1 \leq c \cdot x^2$ sea cierto para todo $x > k$. Un poco de álgebra y desarrollamos la desigualdad:
+Según la definición, debería haber una constante $c$ y un valor mínimo de $k$ tal que, multiplicar esa $c$ por $x^2$, *(nuestra $g(x)$)* hace que  $x^2 + 2x + 1 \leq c \cdot x^2$ sea cierto para todo $x > k$. Un poco de álgebra y desarrollamos la desigualdad:
 
 $$
 \begin{align*} 
@@ -292,7 +292,7 @@ void insertionsort(int[] arr) {
 }
 ```
 
-**Insertion-sort es un algoritmo de ordenación** muy fácil de entender. Imaginemos una baraja de cartas sin ordenar puesta boca abajo en una mesa. Vamos levantando cartas con la mano derecha y colocándola en la izquierda, asegurándonos que siempre que añadimos una carta a la mano izquierda buscamos la posición correcta de dicha carta (en orden ascendente, por ejemplo). De esta forma todo lo que hay en el montón boca abajo está desordenado y lo que tenemos en la mano izquierda ordenado.
+**Insertion-sort es un algoritmo de ordenación** muy fácil de entender. Imaginemos una baraja de cartas, sin ordenar, puesta boca abajo en una mesa. Vamos levantando cartas con la mano derecha y colocándola en la izquierda, asegurando que siempre que añadamos una carta a la mano izquierda la coloquemos **ordenada** en la posición que corresponda (orden ascendente, por ejemplo). De esta forma todo lo que hay en el montón boca abajo está desordenado y lo que tenemos en la mano izquierda ordenado.
 
 <br />
 
@@ -350,7 +350,7 @@ $$
 
 Lo que nos queda al manipular la sumatoria es una **progresión aritmética** *(la suma de los primeros $n$ términos o suma de Gauss)*, que tiene forma cerrada conocida: $\dfrac{n(n+1)}{2}$.
 
-Por tanto acabamos de concluir que el algoritmo insertion sort tiene complejidad cuadrática o $\Theta(n^2)$ y, como hemos visto en esta entrada, **es un algoritmo muy poco eficiente**.
+Concluir entonces que **el algoritmo insertion sort tiene complejidad cuadrática** o $\Theta(n^2)$ y, como hemos visto en esta entrada, **es un algoritmo muy poco eficiente**.
 
 Cualquier duda, comentario, mejora o error en el footer está mi correo personal.
 ¡Hasta la próxima!
