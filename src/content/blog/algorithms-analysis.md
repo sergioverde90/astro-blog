@@ -135,7 +135,7 @@ Fuente: <a href="https://www.bigocheatsheet.com" target="_blank">https://www.big
     <text x="0" y="0" transform="translate(420 470)" style="dominant-baseline: middle; text-anchor: middle; font-size:20px; color: #555; font-style: italic;" fill="black">Elements</text>
 </svg>
 
-A poco que busques información sobre notación asintótica te cruzarás con esta imagen o con una similar. Básicamente **representa las categorizaciones que comúnmente usamos para clasificar algoritmos** *(existen muchas más categorías)*, donde los algoritmos con mejor rendimiento se encuentrarían paralelos *(más bien apoyados)* al eje $x$ e iría empeorando el rendimiento a medida que nos alejamos.
+A poco que busques información sobre notación asintótica te cruzarás con esta imagen o con una similar. Básicamente **representa las categorizaciones que comúnmente usamos para clasificar algoritmos** *(existen muchas más categorías)*, donde los algoritmos con mejor rendimiento se encontrarían paralelos *(más bien apoyados)* al eje $x$ e iría empeorando el rendimiento a medida que nos alejamos.
 
 Para empezar, vamos a desglosar un poco de esas categorías, en orden decreciente al rendimiento, es decir, **los más eficientes primero** y para ello usaré [la notación $\Omicron(x)$](#notación-oomicrono-big-o).
 
