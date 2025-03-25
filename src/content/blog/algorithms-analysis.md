@@ -153,7 +153,7 @@ Para empezar, vamos a desglosar un poco esas categorías en orden decreciente al
 
 * $\Omicron(n\cdot log(n))$ : **Tiempo cuasilineal**, un poco peor que lineal pero aún dentro de un rango aceptable. Algoritmos con estos tiempos de ejecución aún son aceptables cuando el tamaño de entrada es muy muy grande. 
 
-> **Todos los algoritmos de ordenación basados en comparaciones binarias$^*$** *(la mayoría, vamos)* **tienen una complejidad asíntótica de $\Omega$(n \cdot log(n))**.
+> **Todos los algoritmos de ordenación basados en comparaciones binarias$^*$** *(la mayoría, vamos)* tienen una complejidad asíntótica de $ \Omega(n \cdot log(n))$.
 >
 > $^*$ Comparaciones binarias se refiere a cualquier comparación lógica en la que intervengan dos elementos: $ >, <, \leq, \ge, = ...  $
 
