@@ -48,30 +48,30 @@ main {
 	flex: 1 0 auto;
 }
 h1 {
-	margin: 0.5em 0 0 0;
+	margin: 2.2em 0 0 0;
 	color: var(--main-color);
 	line-height: 1.2;
 	text-align: left;
 }
 h2{
-	margin: 1em 0 0 0;
+	margin: 2em 0 0 0;
 	color: var(--main-color-h2);
 	line-height: 1.2;
 	text-align: left;
 } 
 h3 {
-	margin: 0.5em 0 0.5em 0;
+	margin: 2.2em 0 0.5em 0;
 	color: var(--main-color-h3);
 	line-height: 1.2;
 }
 h4 {
-	margin: 0.8em 0 0 0;
+	margin: 2.8em 0 0 0;
 	color: var(--main-color-extra-light);
 	line-height: 1.2;
 }
 h5, 
 h6 {
-	margin: 0.7em 0 0 0;
+	margin: 2.2em 0 0 0;
 	color: var(--main-color-extra-light);
 	line-height: 1.2;
 }
@@ -126,6 +126,39 @@ input {
 }
 table {
 	width: 100%;
+	border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 5px;
+    overflow: hidden;
+	margin: 2em 0 2em 0;
+	text-align: center;
+}
+thead {
+    background-color: var(--main-color-extra-light);
+    color: white;
+    text-align: centerº;
+}
+thead th {
+	padding: 5px;
+	font-size: 16px;
+	font-weight: 600;
+}
+tbody tr {
+	background-color: #ffffff;
+	transition: background-color 0.3s ease;
+}
+tbody tr:nth-child(even) {
+	background-color: #f9fafb;
+}
+tbody td {
+	padding: 5px;
+	border-bottom: 1px solid #e5e7eb;
+	color: #374151;
+	font-size: 0.8em;
+}
+tbody td:first-child {
+	font-weight: 500;
+	color: #111827;
 }
 img {
 	max-width: 100%;
@@ -159,6 +192,22 @@ blockquote {
 	margin: 1em 0em 2em 0em;
 	position: relative;
 }
+blockquote.ykt {
+	border-left: 4px solid rgb(108 151 105);
+	color:rgb(108 151 105);
+	background-color: rgb(240 255 239);
+}
+blockquote.info {
+	border-left: 4px solid rgb(128 125 93);
+	color:rgb(128 125 93);
+	background-color: rgb(255 253 217);
+}
+	
+blockquote.dng {
+	border-left: 4px solid rgb(142, 82, 82);
+	color:rgb(142, 82, 82);
+	background-color: rgb(253, 232, 232);
+}
 hr {
 	border: none;
 	border-top: 1px solid rgb(var(--gray-light));
@@ -169,4 +218,34 @@ hr {
 	font-size: x-small;
 	font-style: oblique;
 	color: rgb(var(--gray-light));
+}
+.katex-display > .katex {
+    max-width: 100% !important;
+    overflow: hidden !important;
+    white-space: normal !important;
+    color: var(--main-color-h2);
+}
+.katex {
+    color: var(--main-color-h2);
+}
+.asymptotic-graph {
+    margin-left: calc(50% - 126px);
+}
+.disclaimer {
+    background-color: rgb(255, 246, 206);
+    border-left: 4px solid rgb(188, 161, 54);
+}
+
+pre code {
+  counter-reset: line;
+}
+
+pre code .line::before {
+  content: counter(line);
+  counter-increment: line;
+  width: 1.5em;
+  display: inline-block;
+  text-align: right;
+  margin-right: 2em;
+  color: rgba(115,138,148,.4)
 }

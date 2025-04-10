@@ -5,50 +5,6 @@ pubDate: 'Mar 06 2025'
 draft: false
 ---
 
-<style>
-.container {
-    display: grid;
-    grid-template-columns: repeat(
-        auto-fill, 
-        minmax(300px, 1fr)
-    );
-
-    & div {
-        padding: 5px;
-    }
-}
-.katex-display > .katex {
-    max-width: 100% !important;
-    overflow: hidden !important;
-    white-space: normal !important;
-    color: var(--highlight);
-}
-.katex {
-    color: var(--main-color-h2);
-}
-.asymptotic-graph {
-    margin-left: calc(50% - 126px);
-}
-.disclaimer {
-    background-color: rgb(255, 246, 206);
-    border-left: 4px solid rgb(188, 161, 54);
-}
-
-pre code {
-  counter-reset: line;
-}
-
-pre code .line::before {
-  content: counter(line);
-  counter-increment: line;
-  width: 1.5em;
-  display: inline-block;
-  text-align: right;
-  margin-right: 2em;
-  color: rgba(115,138,148,.4)
-}
-</style>
-
 # Introducción
 
 Esta es la primera parte de una serie de posts en los que hablaré sobre **algoritmos y cómo analizarlos**. Para poder analizar algoritmos necesitamos desbloquear un par de cosas:
@@ -56,16 +12,11 @@ Esta es la primera parte de una serie de posts en los que hablaré sobre **algor
 * **Análisis asintótico y orden de complejidad**, que es lo que vamos a ver **en este post**.
 * **Análisis del tiempo de ejecución** de un algoritmo, a través del cuál se analiza un algoritmo estructuralmente para, posteriormente, poder hacer el análisis asintótico del mismo. Este apartado lo cubriré **en profundidad en un futuro post** pero dejaré un ejemplo al final.
 
-<br />
-
 # Por qué medir la eficiencia de un algoritmo
 
 Venga, te presento los siguientes algoritmos de ordenación, ¿cuál dirías que es más eficiente? 
 
 <span class="whisper">quizás sabes la respuesta pero, ¿sabrías justificar por qué?</span>
-
-<div class="container">
-<div>
 
 **Insertion sort**
 
@@ -107,8 +58,6 @@ Para solucionar esto se estableció un marco teórico, **matemático**, a travé
 > Cuando decimos **asintótico** nos referimos al **comportamiento de una función cuando los datos de entrada tienden a infinito**.
 
 ## La "big picture"
-
-<br />
 
 Fuente: <a href="https://www.bigocheatsheet.com" target="_blank">https://www.bigocheatsheet.com</a>
 
@@ -274,8 +223,6 @@ $$
 
 Con esto concluimos el apartado de notaciones asintóticas. **Existen dos notaciones más** que no voy a cubrir aquí porque no suelen aparecer tanto, aunque las dejaré como referencia: <a href="https://www.geeksforgeeks.org/analysis-of-algorithems-little-o-and-little-omega-notations/">little-o y little-omega</a>.
 
-<br />
-
 # Pero y todo esto, ¿cómo se aplica?
 
 Como comentaba en la introducción, el análisis asintótico es solo "una pata" de todas las que sustenta el análisis de algoritmos. Para cerrar el post voy a dejar el análisis de uno de los algoritmos que mencioné arriba, **insertion sort**, aunque para ello **utilizaré técnicas que no están descritas en esta entrada** pero que **explicaré en un futuro**.
@@ -295,8 +242,6 @@ void insertionsort(int[] arr) {
 ```
 
 **Insertion-sort es un algoritmo de ordenación** muy fácil de entender. Imaginemos una baraja de cartas, sin ordenar, puesta boca abajo en una mesa. Vamos levantando cartas con la mano derecha y colocándolas en la izquierda, asegurando que siempre que añadamos una carta a la mano izquierda la coloquemos **ordenada** en la posición que corresponda *(orden ascendente, por ejemplo)*. De esta forma todo lo que hay en el montón boca abajo está desordenado y lo que tenemos en la mano izquierda ordenado.
-
-<br />
 
 ### Bucle while
 
@@ -328,8 +273,6 @@ $$
 $$
 
 Por tanto, cuando la iteración $k$ es la última tenemos que el bucle se ha ejecutado $j$ veces. Asumiendo $\Theta(1)$ para las líneas 4 y 5 tenemos que el coste del bucle `while` es de $\Theta(j)$.
-
-<br />
 
 ### Bucle for
 
