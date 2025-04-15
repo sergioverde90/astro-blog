@@ -235,11 +235,9 @@ hr {
     background-color: rgb(255, 246, 206);
     border-left: 4px solid rgb(188, 161, 54);
 }
-
 pre code {
   counter-reset: line;
 }
-
 pre code .line::before {
   content: counter(line);
   counter-increment: line;
@@ -248,4 +246,7 @@ pre code .line::before {
   text-align: right;
   margin-right: 2em;
   color: rgba(115,138,148,.4)
+}
+pre.has-focused code .line:not(.focused) {
+	filter: blur(2px);
 }

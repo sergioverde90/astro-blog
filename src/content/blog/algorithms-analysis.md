@@ -233,10 +233,10 @@ Como comentaba en la introducción, el análisis asintótico es solo "una pata" 
 void insertionsort(int[] arr) {
     for (int j = 1; j < arr.length; j++) {
         int i = j - 1;
-        while (i >= 0 && arr[i] > arr[i+1]) { // [!code focus]
-            swap(arr, i, i+1);                // [!code focus]
-            i--;                              // [!code focus]
-        }                                     // [!code focus]
+        while (i >= 0 && arr[i] > arr[i+1]) {
+            swap(arr, i, i+1);               
+            i--;                             
+        }                                    
     }
 }
 ```
@@ -246,14 +246,15 @@ void insertionsort(int[] arr) {
 ### Bucle while
 
 ```java
-// omitimos el bucle for de momento
-// ...
-while (i >= 0 && arr[i] > arr[i+1]) { // [!code focus]
-    swap(arr, i, i+1);                // [!code focus]
-    i--;                              // [!code focus]
+void insertionsort(int[] arr) {
+    for (int j = 1; j < arr.length; j++) {
+        int i = j - 1;
+        while (i >= 0 && arr[i] > arr[i+1]) { // [!code focus]
+            swap(arr, i, i+1);                // [!code focus]
+            i--;                              // [!code focus]
+        }                                     // [!code focus]
+    }
 }
-                                     // [!code focus] 
-// ...                                  
 
 ```
 
@@ -278,10 +279,13 @@ Por tanto, cuando la iteración $k$ es la última tenemos que el bucle se ha eje
 
 ```java
 void insertionsort(int[] arr) {
-    for (int j = 1; j < arr.length; j++) { // [!code focus]
+    for (int j = 1; j < arr.length; j++) { // [!code focus] 
         int i = j - 1;                     // [!code focus] 
-        // + Θ(j)
-    }
+        while (i >= 0 && arr[i] > arr[i+1]) {
+            swap(arr, i, i+1);               
+            i--;                             
+        }                                    
+    }                                       // [!code focus] 
 }
 ```
 
