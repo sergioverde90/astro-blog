@@ -7,7 +7,7 @@ draft: false
 
 # Introducción 
 
-Anteriormente, ya vimos y entendimos cómo categorizar los costes de nuestro código usando para ello <a href="/blog/algorithms-analysis">análisis asintótico</a>. Y eso está genial pero, **¿cómo se extraen dichos costes?** ¿Qué técnicas tenemos a nuestra disposición para ello? La primera vez que empecé a profundizar en este tema me di cuenta que **la mayoría de los libros y recursos ya parten de un análisis implícito**, dejando un hueco bastante importante sin cerrar. A lo largo del tiempo, y tras mucha investigación, me doy cuenta de que **hay muy poca literatura** hablando sobre **cómo extraer dichas expresiones**, cómo analizar las estructuras de nuestro código para sacar esa información y categorizarla. Mi idea con este segundo post es arrojar algo de luz sobre este tema y sentar bien las bases aunque, como veremos, tendremos que "ensuciarnos la manos".
+Anteriormente, ya vimos y entendimos cómo categorizar los costes de nuestro código usando para ello <a href="/blog/algorithms-analysis">análisis asintótico</a>. Y eso está genial pero, **¿cómo se extraen dichos costes?** ¿Qué técnicas tenemos a nuestra disposición para ello? La primera vez que empecé a profundizar en este tema me di cuenta de que **la mayoría de los libros y recursos ya parten de un análisis implícito**, dejando un hueco bastante importante sin cerrar. A lo largo del tiempo, y tras mucha investigación, me doy cuenta de que **hay muy poca literatura** hablando sobre **cómo extraer dichas expresiones**, cómo analizar las estructuras de nuestro código para sacar esa información y categorizarla. Mi idea con este segundo post es arrojar algo de luz sobre este tema y sentar bien las bases aunque, como veremos, tendremos que "ensuciarnos la manos".
 
 En esta segunda entrada veremos cómo analizar bucles `for` y `while`, tanto de forma aislada como de forma conjunta, bucles anidados, etc. Mi idea es **ver casos que comúnmente podemos encontrarnos a la hora de analizar código**, algo cercano a la realidad. También daremos algunos trucos que pueden ser interesantes y aplicaremos todo esto sobre algoritmos conocidos.
 
@@ -19,7 +19,7 @@ El análisis de bucles `for` *(a excepción, quizás, de los más elementales)* 
 
 </blockquote>
 
-Arrancamos con el análisis del tipo de bucle que más a ver en nuestro día a día: los bucles `for`. Para ello vamos a analizarlo en su **versión larga**. Normalmente, un bucle `for` suele seguir esta estructura:
+Arrancamos con el análisis del tipo de bucle que más vamos a ver en nuestro día a día: los bucles `for`. Para ello vamos a analizarlo en su **versión larga**. Normalmente, un bucle `for` suele seguir esta estructura:
 
 ```java
 for (int i = 0; i < arr.length; i++) {
@@ -65,7 +65,7 @@ for (
 }
 ```
 
-Pensemos un poco. Tenemos que la declaración del bucle, la "parte externa", tiene un coste de $c_1 +  c_2(n + 1) + c_3n$, y por cada iteración, se ejecuta el cuerpo del bucle, "la parte interna", con coste constante $c_4$. Esto resulta en la expresión $(c_1 +  c_2(n + 1) + c_3n) \cdot c_4$. Veámos **dos perspectivas** desde la que analizar esto.
+Pensemos un poco. Tenemos que la declaración del bucle, la "parte externa", tiene un coste de $c_1 +  c_2(n + 1) + c_3n$, y por cada iteración, se ejecuta el cuerpo del bucle, "la parte interna", con coste constante $c_4$. Esto resulta en la expresión $(c_1 +  c_2(n + 1) + c_3n) \cdot c_4$. Veámos **dos perspectivas** desde las que analizar esto.
 
 ### The _"hard" way_
 
@@ -88,9 +88,9 @@ Si agrupamos constantes y acomodamos un par de nuevas variables, de tal forma qu
 
 Aquí viene **el primer truqui** *(que no es tan truqui en realidad)*. Como comentábamos en la primera parte, a nosotros lo que nos interesa es **saber el comportamiento de nuestro algoritmo cuando el tamaño de $n$ crece sin límite**. Cuando hacemos que $n$ tienda a infinito, los valores que son constantes respecto al tamaño de $n$ son insignificantes, por lo que podemos darnos la libertad$^{1}$ de pasar por alto dichas constantes y **quedarnos solamente con aquellos términos que son relevantes a mayor escala**. Teniendo esto en cuenta, la expresión $(c_1 +  c_2(n + 1) + c_3n) \cdot c_4$ quedaría reducida a $n$ descartando constantes $c_1$ , $c_2$, $c_3$, $c_4$ y $1$.
 
-De igual forma, concluimos por tanto que la complejidad asintótica de iterar sobre un lista de elementos usando un bucle simple con operaciones constantes en su interior es de $\Theta(n)$.
+De igual forma, concluimos por tanto que la complejidad asintótica de iterar sobre una lista de elementos usando un bucle simple con operaciones constantes en su interior es de $\Theta(n)$.
 
-> $^1$ Merece la pena recalcar que podemos añadir tantas operaciones **constantes** dentro del cuerpo del bucle como queramos, ya que esto no afecta a su complejidad asintótica debido que, al descartar constantes, acabaremos con el mismo resultado: **la complejidad asíntótica de un bucle simple viene dada por el tamaño de datos de entrada y no por las operaciones que se realizan en su interior, siempre y cuando las operaciones que ejecute sean constantes y no dependan de los datos de entrada**. Si bien esto es cierto, elegir un algoritmo con peor rendimiento asíntótico respecto a otro que se comporte mejor puede tener sentido dependiendo de estas contantes, **siempre y cuando el tamaño de entrada sea relativamente pequeño**.
+> $^1$ Merece la pena recalcar que podemos añadir tantas operaciones **constantes** dentro del cuerpo del bucle como queramos, ya que esto no afecta a su complejidad asintótica debido que, al descartar constantes, acabaremos con el mismo resultado: **la complejidad asíntótica de un bucle simple viene dada por el tamaño de datos de entrada y no por las operaciones que se realizan en su interior, siempre y cuando las operaciones que ejecute sean constantes y no dependan de los datos de entrada**. Si bien esto es cierto, elegir un algoritmo con peor rendimiento asíntótico respecto a otro que se comporte mejor puede tener sentido dependiendo de estas constantes, **siempre y cuando el tamaño de entrada sea relativamente pequeño**.
 >
 
 <blockquote class="ykt">
@@ -117,7 +117,7 @@ for (int i = arr.length; i > 0; i--) {
 
 Este caso es muy simple de analizar, ya que sabemos que el coste de cada uno de ellos es de $\Theta(n)$, lo cual implicaría $\Theta(2n)$. De nuevo, si ignoramos constantes, deducimos que **ejecutar varios bucles de forma consecutiva no afecta al coste asintótico**, dejando dicho coste en $\Theta(n)$.
 
-> Que no afecte al coste asintótico **no implica que no afecte tenga coste computacional**. Obviamente a mayor número de bucles sobre la entrada de datos, aún siendo secuencial, mayor coste. Aquí solo reflejamos que cuando el tamaño de $n$ es lo suficientemente grande este coste es insignificante.
+> Que no afecte al coste asintótico **no implica que no tenga coste computacional**. Obviamente a mayor número de bucles sobre la entrada de datos, aún siendo secuencial, mayor coste. Aquí solo reflejamos que cuando el tamaño de $n$ es lo suficientemente grande este coste es insignificante.
 
 ## Análisis de bucle `for` anidado: índices independientes
 
@@ -192,13 +192,13 @@ $$
 > 
 > Si quiero sumar, pongamos, desde el 5 hasta el 10, ¿cuántos elementos intervienen en dicha suma? El conjunto de elementos que queremos sumar sería $ S = \set{5, 6, 7, 8 ,9, 10}$ y la cardinalidad de $S$ sería $|S| = 6$. Si $n = 10$ y $i=5$, tenemos que $10 - 5 + 1 = 6$, que es el total de elementos que tenemos que sumar. Prueba con otras cantidades si aún tienes los ojos entornados.
 
-Ahora tenemos un pequeño problema, y es que la sumatoria que nos ha quedado **no tiene forma cerrada** como al anterior, sino que depende de $n$ y de $i$. Para analizar este tipo de sumatorias hay varias técnicas y en este post voy a detallar dos de ellas: **linealidad** y **limitar la sumatoria**.
+Ahora tenemos un pequeño problema, y es que la sumatoria que nos ha quedado **no tiene forma cerrada** como la anterior, sino que depende de $n$ y de $i$. Para analizar este tipo de sumatorias hay varias técnicas y en este post voy a detallar dos de ellas: **linealidad** y **limitar la sumatoria**.
 
 <blockquote class="info">
 
 **linealidad vs limitar la sumatoria**
 
-Es **muy recomendable** que la técnica por defecto sea limitar las sumatorias. En ocasiones puede ser más tedioso pero hay expresiones que **son muy aparatosas de analizar** usando linealidad o, directamente, **no pueden analizarse**. La propiedad de linealiad está **pensada para encontra valores exactos** y puede aplicarse cuando la expresión sea más o menos simple. Para expresiones más complejas no merece la pena el esfuerzo de un análisis tan exhaustivo, pues recordemos que en **análisis asintótico buscamos valores aproximados** cuando $n$ tiende a infinito, por lo que usando la técnica de limitar la sumatoria obtendremos un análisis de tendencia, que es justo lo que buscamos.
+Es **muy recomendable** que la técnica por defecto sea limitar las sumatorias. En ocasiones puede ser más tedioso pero hay expresiones que **son muy aparatosas de analizar** usando linealidad o, directamente, **no pueden analizarse**. La propiedad de linealidad está **pensada para encontrar valores exactos** y puede aplicarse cuando la expresión sea más o menos simple. Para expresiones más complejas no merece la pena el esfuerzo de un análisis tan exhaustivo, pues recordemos que en **análisis asintótico buscamos valores aproximados** cuando $n$ tiende a infinito, por lo que usando la técnica de limitar la sumatoria obtendremos un análisis de tendencia, que es justo lo que buscamos.
 
 </blockquote>
 
@@ -243,7 +243,7 @@ Para poder limitar por arriba la sumatoria y dado que la función es decreciente
 
 > **¿Por qué el menor valor de $i$?**
 >
-> Porque al ser una función **decreciente** en $i$ *(está restando)*, para obtener una **cota superior** tenemos que **encontrar el valor de $i$ que haga que la función tome el mayor valor posible**. De lo contrario acabaríamos con una expresión tal que $c \sum\limits_{i=0}^{n} (n - n + 1) = c \sum\limits_{i=0}^{n} 1 = cn$, lo cual no nos una cota superior lo suficientemente ajustada subestimando la sumatoria.
+> Porque al ser una función **decreciente** en $i$ *(está restando)*, para obtener una **cota superior** tenemos que **encontrar el valor de $i$ que haga que la función tome el mayor valor posible**. De lo contrario acabaríamos con una expresión tal que $c \sum\limits_{i=0}^{n} (n - n + 1) = c \sum\limits_{i=0}^{n} 1 = cn$, lo cual no nos da una cota superior lo suficientemente ajustada subestimando la sumatoria.
 
 $$
     c \sum\limits_{i=0}^{n} (n - i + 1) \leq c \sum\limits_{i=0}^{n} (n - 0 + 1) = c \sum\limits_{i=0}^{n} (n + 1) = c n(n + 1) = c(n^2 +n)
@@ -253,7 +253,7 @@ Lo cual nos deja $\Omicron(n^2)$.
 
 ##### Analizando el límite inferior
 
-Este caso requiere de algo más de trabajo. El objetivo en el límite inferior es encontrar el **mayor valor de $i$** que sea lo más ajustado posible. Antes de ponernos con el análisis pensemos un poco en cómo podríamos abordar este problema. Partimos de una desigualdad tal que así:
+Este caso requiere algo más de trabajo. El objetivo en el límite inferior es encontrar el **mayor valor de $i$** que sea lo más ajustado posible. Antes de ponernos con el análisis pensemos un poco en cómo podríamos abordar este problema. Partimos de una desigualdad tal que así:
 
 $$
     c \sum\limits_{i=0}^{n} (n - i + 1) \geq \delta
@@ -311,7 +311,7 @@ El análisis de bucles `while` se puede realizar de forma sistemática dibujando
 
 Quizá la primera pregunta que se te venga a la mente es, ¿por qué distinguir el análisis de bucles `for` y `while` si ambos son bucles? Ciertamente el análisis de ambos no difiere mucho y la diferencia reside en **qué tan compleja es la lógica para la condición de parada**. Me explico: en los bucles `for` normalmente actualizamos el índice de una forma específica, ya sea incrementándolo, decrementándolo, etc. En un bucle `while`, además de esto podemos, tener algún tipo de lógica, como estructuras condicionales, haciendo el análisis un tanto diferente. 
 
-Para ilustrar cómo se analizaría un bucle `while` dejaré tres de casuísticas: un ejemplo sencillo como toma de contacto, un ejemplo mixto que incluye una mezcla de bucles `for` y `while` anidados y un último ejemplo real, y también más complejo de analizar, usando un algoritmo bastante conocido: **binary search**.
+Para ilustrar cómo se analizaría un bucle `while` dejaré tres casuísticas: un ejemplo sencillo como toma de contacto, un ejemplo mixto que incluye una mezcla de bucles `for` y `while` anidados y un último ejemplo real, y también más complejo de analizar, usando un algoritmo bastante conocido: **binary search**.
 
 ## Bucle `while`: ejemplo simple
 
@@ -382,7 +382,7 @@ Por tanto, el coste total será la suma de los costes, desde $0$ hasta $k$ *(don
 
 <blockquote class="ykt">
 
-Hacer análisis de estructuras condicionales en algoritmos iterativos, como las que vamos a ver ahora, suele evitarse dado que normalmente no sabemos a exactamente cuántas veces se va a ejecutar cada rama de la estuctura `if / else`, lo cuál nos lleva a **estimar y asumir comportamiento de dichos datos** (como probabilidad uniforme, asumir que no hay repetición del dato, etc) y complica el análisis. La **estrategia a seguir** en estos casos es **tomar el camino más costoso** *(el peor de los casos)* y **descartar los caminos donde el algoritmo tenga que realizar menos operaciones** intentando así eliminar la estructura condicional.
+Hacer análisis de estructuras condicionales en algoritmos iterativos, como las que vamos a ver ahora, suele evitarse dado que normalmente no sabemos exactamente cuántas veces se va a ejecutar cada rama de la estuctura `if / else`, lo cuál nos lleva a **estimar y asumir comportamiento en dichos datos** (como probabilidad uniforme, asumir que no hay repetición del dato, etc) y complica el análisis. La **estrategia a seguir** en estos casos es **tomar el camino más costoso** *(el peor de los casos)* y **descartar los caminos donde el algoritmo tenga que realizar menos operaciones** intentando así eliminar la estructura condicional.
 
 </blockquote>
 
@@ -430,7 +430,7 @@ La forma más sencilla de analizar bucles `while` cuando intervienen varias vari
 | k             | $n/2^k$       |
 
 
-La condición de parada del bucle es `left <= right` y, dado hemos fijado que `left = 1`, el bucle parará cuando la k-ésima iteración sea menor o igual a ese valor, es decir, que $n/2^k = 1$. Si resolvemos para $k$ tenemos que $k = log_2(n)$, es decir, el cuerpo del bucle se ejecuta en **order logarítmico** respecto al tamaño de datos. Tenemos pues que el coste asintótico del algoritmo **binary search** es de $\Theta(log(n))$.
+La condición de parada del bucle es `left <= right` y, dado que hemos fijado que `left = 1`, el bucle parará cuando la k-ésima iteración sea menor o igual a ese valor, es decir, que $n/2^k = 1$. Si resolvemos para $k$ tenemos que $k = log_2(n)$, es decir, el cuerpo del bucle se ejecuta en **orden logarítmico** respecto al tamaño de datos. Tenemos pues que el coste asintótico del algoritmo **binary search** es de $\Theta(log(n))$.
 
 # Conclusión y siguientes pasos
 
