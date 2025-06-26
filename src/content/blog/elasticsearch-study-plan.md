@@ -2,7 +2,7 @@
 title: 'Elasticsearch - Study Plan'
 description: 'A study plan designed to learn about Elasticseach step by step, from a high level perspective to deep dive into some fundamentals core concepts!'
 pubDate: 'Jun 26 2025'
-draft: false
+draft: true
 ---
 
 # 
