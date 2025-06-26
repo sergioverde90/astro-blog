@@ -193,9 +193,9 @@ blockquote {
 	position: relative;
 }
 blockquote.ykt {
-	border-left: 4px solid rgb(108 151 105);
-	color:rgb(108 151 105);
-	background-color: rgb(240 255 239);
+	border-left: 4px solid rgb(128, 105, 151);
+	color:rgb(128, 105, 151);
+	background-color: rgb(253, 239, 255);
 }
 blockquote.info {
 	border-left: 4px solid rgb(128 125 93);
