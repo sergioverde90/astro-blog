@@ -140,6 +140,8 @@ Covered in [Beginner’s Crash Course to Elastic Stack - Part 3: Full text queri
 
 Elasticsearch defines a custom binary protocol for inter-node communication using Netty. Look at `org.elasticsearch.transport` package, especially [`TransportService`](https://github.com/elastic/elasticsearch/blob/main/server/src/main/java/org/elasticsearch/transport/TransportService.java) and [`Netty4Transport`](https://github.com/elastic/elasticsearch/blob/main/modules/transport-netty4/src/main/java/org/elasticsearch/transport/netty4/Netty4Transport.java). 
 
+[Elasticsearch cluster coordination algorithms](https://www.elastic.co/blog/a-new-era-for-cluster-coordination-in-elasticsearch)
+
 </blockquote>
 
 * **Shard Allocation & Routing:** How Elasticsearch distributes shards and routes requests.
@@ -149,6 +151,7 @@ Elasticsearch defines a custom binary protocol for inter-node communication usin
 ## 2. Indexing Internals (Lucene Basics): 
 
 Covered in Elasticsearch Definitive Guide - Chapter 11 Inside a shard
+Recommended: [What is in a Lucene index? Adrien Grand, Software Engineer, Elasticsearch](https://youtu.be/T5RmMNDR5XI)
 
 * **Inverted Index:** The core data structure.
 * **Segments:** How data is stored and managed in Lucene.
