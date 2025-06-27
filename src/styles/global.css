@@ -198,11 +198,15 @@ blockquote.ykt {
 	background-color: rgb(253, 239, 255);
 }
 blockquote.info {
+	border-left: 4px solid rgb(95, 128, 93);
+	color:rgb(95, 128, 93);
+	background-color: rgba(223, 255, 217, 0.501);
+}
+blockquote.warning {
 	border-left: 4px solid rgb(128 125 93);
 	color:rgb(128 125 93);
 	background-color: rgb(255 253 217);
-}
-	
+}	
 blockquote.dng {
 	border-left: 4px solid rgb(142, 82, 82);
 	color:rgb(142, 82, 82);
