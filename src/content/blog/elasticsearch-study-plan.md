@@ -88,8 +88,6 @@ This plan is divided into modules. Try to complete them sequentially, ensuring y
 
 **Goal:** Master Elasticsearch's powerful search and aggregation capabilities.
 
-All data types [here](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/field-data-types).
-
 ## 3.1. Query DSL Deep Dive:
 
 Covered in [Beginner’s Crash Course to Elastic Stack - Part 3: Full text queries](https://youtu.be/2KgJ6TQPIIA)
@@ -129,7 +127,7 @@ Covered in [Beginner’s Crash Course to Elastic Stack - Part 3: Full text queri
 
             [Beginner’s Crash Course to Elastic Stack - Part 3: Full text queries # match query](https://youtu.be/2KgJ6TQPIIA?t=1088)
 
-        * [match phrase query](https://www.elastic.co/docs/reference/query-languages/query-dsl/query-dsl-match-query-phrase): all terms must be present in the document, and they must appear in the exact order specified, and be contiguous.
+        * [match_phrase query](https://www.elastic.co/docs/reference/query-languages/query-dsl/query-dsl-match-query-phrase): all terms must be present in the document, and they must appear in the exact order specified, and be contiguous.
 
             [Beginner’s Crash Course to Elastic Stack - Part 3: Full text queries # match_phrase query](https://youtu.be/2KgJ6TQPIIA?t=1287)
 
@@ -141,7 +139,7 @@ Covered in [Beginner’s Crash Course to Elastic Stack - Part 3: Full text queri
             
             </blockquote>
 
-        * [multi match query](https://www.elastic.co/docs/reference/query-languages/query-dsl/query-dsl-multi-match-query): it allows to use a `match` query against multiple fields.
+        * [multi_match query](https://www.elastic.co/docs/reference/query-languages/query-dsl/query-dsl-multi-match-query): it allows to use a `match` query against multiple fields.
             
             [Beginner’s Crash Course to Elastic Stack - Part 3: Full text queries # muti_match query](https://youtu.be/2KgJ6TQPIIA?t=1418)
             
@@ -151,7 +149,10 @@ Covered in [Beginner’s Crash Course to Elastic Stack - Part 3: Full text queri
 
 * **Joining queries** (nested, has_child, has_parent - if applicable to your use cases).
 
-## 3.2. Analyzers and Mappings:
+## 3.2. Analyzers and Mappings
+
+All data types [here](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/field-data-types).
+
 * How text is analyzed (tokenizers, token filters, character filters).
 * Standard analyzer vs. other built-in analyzers.
 * Defining custom analyzers.
